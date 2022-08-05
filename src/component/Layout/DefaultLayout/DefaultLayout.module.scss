@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.container {
+    width: var(--default-layout-width);
+    display: flex;
+    justify-content: space-between;
+}
+.content {
+    max-width: 692px;
+    // khi content nhỏ hơn 692 thì nó lấy 692px
+    width: 692px;
+}
