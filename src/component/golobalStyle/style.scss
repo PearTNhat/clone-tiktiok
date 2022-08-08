@@ -3,6 +3,7 @@
 @import 'normalize.css';
 :root {
     --primary: rgba(254, 44, 85, 1);
+    --white: white;
     //default layout
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
@@ -19,4 +20,14 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     line-height: 1.5em;
     font-size: 1.6em;
+    color: #333;
+}
+input,
+button,
+[tabindex] {
+    border: none;
+    outline: none;
+}
+a[href] {
+    text-decoration: none;
 }
