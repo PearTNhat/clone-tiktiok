@@ -80,6 +80,25 @@
     }
 }
 .actions {
+    display: flex;
+    align-items: center;
 }
-.upload {
+button.custom-upload {
+    padding: 8px 17px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    border-radius: 2px;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+.title-upload {
+    font-weight: 600;
+}
+.icon-ellipsis {
+    background-color: transparent;
+    display: inline-block;
+    font-size: 20px;
+    padding: 3px 12px;
+    margin-left: 15px;
+    cursor: pointer;
 }

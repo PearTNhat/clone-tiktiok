@@ -4,7 +4,7 @@ import Tippy from '@tippyjs/react/headless';
 import { useEffect, useState } from 'react';
 //
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faSpinner, faPlus, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import images from '~/asset/images';
 import { Wrapper as ProperWrapper } from '~/component/Popper';
@@ -12,8 +12,7 @@ import AcountSearch from '~/component/accountsItem/accountsSearch';
 import Button from '~/component/button';
 const cx = classNames.bind(styles);
 function Header() {
-    const [searchResult, setSearchResult] = useState([1]);
-
+    const [searchResult, setSearchResult] = useState([]);
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -49,7 +48,24 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('actions')}></div>
+                <div className={cx('actions')}>
+                    <Button className={cx('custom-upload')} leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                        <span className={cx('title-upload')}>Upload</span>
+                    </Button>
+                    <Button primary>Log in</Button>
+                    <Tippy
+                        interactive
+                        render={(attrs) => (
+                            <div className={cx('option')} tabIndex="-1" {...attrs}>
+                                <ProperWrapper>hello</ProperWrapper>
+                            </div>
+                        )}
+                    >
+                        <button className={cx('icon-ellipsis')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Tippy>
+                </div>
             </div>
         </header>
     );
