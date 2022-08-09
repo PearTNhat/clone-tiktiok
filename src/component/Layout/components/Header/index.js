@@ -4,13 +4,38 @@ import Tippy from '@tippyjs/react/headless';
 import { useEffect, useState } from 'react';
 //
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faSpinner, faPlus, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import {
+    faMagnifyingGlass,
+    faSpinner,
+    faPlus,
+    faEllipsisVertical,
+    faEarthAsia,
+    faCircleQuestion,
+    faKeyboard,
+} from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import images from '~/asset/images';
-import { Wrapper as ProperWrapper } from '~/component/Popper';
+import { Wrapper as PopperWrapper } from '~/component/Popper';
 import AcountSearch from '~/component/accountsItem/accountsSearch';
 import Button from '~/component/button';
+import Menu from '~/component/Popper/Menu';
 const cx = classNames.bind(styles);
+const items = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        title: 'Tiếng Việt',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        to: '/feedback',
+        title: 'Feedback and help',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard shotcuts',
+    },
+];
+
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
     return (
@@ -24,13 +49,13 @@ function Header() {
                     visible={searchResult.length > 0}
                     render={(attrs) => (
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <ProperWrapper>
+                            <PopperWrapper>
                                 <h4 className={cx('search-title')}>Accounts</h4>
                                 <AcountSearch />
                                 <AcountSearch />
                                 <AcountSearch />
                                 <AcountSearch />
-                            </ProperWrapper>
+                            </PopperWrapper>
                         </div>
                     )}
                 >
@@ -53,18 +78,12 @@ function Header() {
                         <span className={cx('title-upload')}>Upload</span>
                     </Button>
                     <Button primary>Log in</Button>
-                    <Tippy
-                        interactive
-                        render={(attrs) => (
-                            <div className={cx('option')} tabIndex="-1" {...attrs}>
-                                <ProperWrapper>hello</ProperWrapper>
-                            </div>
-                        )}
-                    >
+
+                    <Menu items={items}>
                         <button className={cx('icon-ellipsis')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
-                    </Tippy>
+                    </Menu>
                 </div>
             </div>
         </header>

@@ -1,0 +1,19 @@
+.menu-list {
+    width: 223px;
+    .menu-item {
+        margin-left: 0;
+    }
+}
+.menu-wrapper {
+    padding-bottom: 8px;
+}
+.menu-item {
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
