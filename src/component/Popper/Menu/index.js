@@ -7,7 +7,7 @@ import { Wrapper as PopperWrapper } from '../../Popper';
 import MenuItem from './MenuItems';
 import Header from './Language/Header';
 const cx = classNames.bind(styles);
-function Menu({ items = [], children }) {
+function Menu({ items = [], onChange = () => {}, children }) {
     const [history, setHistory] = useState([{ data: items }]);
     const currentItems = history[history.length - 1];
     const renderItems = () => {
@@ -22,7 +22,7 @@ function Menu({ items = [], children }) {
                         if (isParent) {
                             setHistory((prev) => [...prev, item.children]);
                         } else {
-                            console.log('no-children');
+                            onChange(item);
                         }
                     }}
                 />
@@ -31,7 +31,7 @@ function Menu({ items = [], children }) {
     };
     return (
         <Tippy
-            visible
+            offset={[10, 10]}
             delay={(700, null)}
             interactive
             placement="bottom-start"

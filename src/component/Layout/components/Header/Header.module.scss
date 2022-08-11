@@ -9,6 +9,7 @@
     width: 100%;
 }
 .inner {
+    padding: 0px 20px;
     width: var(--default-layout-width);
     display: flex;
     align-items: center;
@@ -101,4 +102,21 @@ button.custom-upload {
     padding: 2px 12px;
     margin-left: 15px;
     cursor: pointer;
+}
+.actions-i,
+.w-actions-i {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+}
+.w-actions-i {
+    display: inline-block;
+    margin-left: 16px;
+}
+.user-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 26px;
 }
