@@ -4,6 +4,7 @@
 :root {
     --primary: rgba(254, 44, 85, 1);
     --white: white;
+    --text-color: black;
     //default layout
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
@@ -29,6 +30,8 @@ button,
     outline: none;
     font-family: inherit;
 }
-a[href] {
+a[href],
+a[to] {
     text-decoration: none;
+    color: var(--text-color);
 }

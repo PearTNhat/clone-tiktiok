@@ -2,8 +2,8 @@ import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import Tippy from '@tippyjs/react/headless';
 import { useEffect, useState } from 'react';
-//
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//
 import {
     faMagnifyingGlass,
     faSpinner,
@@ -24,6 +24,14 @@ const items = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'Tiếng Việt',
+        children: {
+            header: 'yes',
+            title: 'Language',
+            data: [
+                { code: 'vi', title: 'Tiếng việt' },
+                { code: 'en', title: 'English' },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -48,7 +56,11 @@ function Header() {
                     interactive
                     visible={searchResult.length > 0}
                     render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                        <div
+                            className={cx('search-result')}
+                            tabIndex="-1"
+                            {...attrs}
+                        >
                             <PopperWrapper>
                                 <h4 className={cx('search-title')}>Accounts</h4>
                                 <AcountSearch />
@@ -60,7 +72,10 @@ function Header() {
                     )}
                 >
                     <div className={cx('search')}>
-                        <input type="text" placeholder="Search accounts and videos" />
+                        <input
+                            type="text"
+                            placeholder="Search accounts and videos"
+                        />
 
                         <button className={cx('clear')}>
                             <FontAwesomeIcon icon={faCircleXmark} />
@@ -74,7 +89,10 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('actions')}>
-                    <Button className={cx('custom-upload')} leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                    <Button
+                        className={cx('custom-upload')}
+                        leftIcon={<FontAwesomeIcon icon={faPlus} />}
+                    >
                         <span className={cx('title-upload')}>Upload</span>
                     </Button>
                     <Button primary>Log in</Button>

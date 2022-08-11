@@ -7,13 +7,18 @@
 .menu-wrapper {
     padding-bottom: 8px;
 }
+a.menu-item {
+    display: inline-block;
+}
 .menu-item {
     width: 100%;
     text-align: left;
-    padding: 10px 12px;
+    padding: 9px 12px;
     font-weight: 600;
     font-size: 1.6rem;
+    line-height: 22px;
+
     &:hover {
-        background: rgba(22, 24, 35, 0.03);
+        background-color: rgba(22, 24, 35, 0.06);
     }
 }
