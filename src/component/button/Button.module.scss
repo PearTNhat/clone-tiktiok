@@ -51,7 +51,12 @@
     border-color: currentColor;
     box-shadow: none;
     &:hover {
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+        background: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.06),
+                rgba(0, 0, 0, 0.06)
+            ),
+            #fe2c55;
     }
 }
 
@@ -63,4 +68,7 @@
 .disable {
     opacity: 0.5;
     pointer-events: none;
+}
+.title {
+    font-weight: 600;
 }

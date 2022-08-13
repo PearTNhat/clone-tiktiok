@@ -1,4 +1,5 @@
-const imgage = {
+const images = {
     logo: require('./logo.svg').default,
+    noImage: require('./img-error.jfif'),
 };
-export default imgage;
+export default images;
