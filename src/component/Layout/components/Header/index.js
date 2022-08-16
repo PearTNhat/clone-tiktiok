@@ -1,35 +1,31 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import Tippy from '@tippyjs/react/headless';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //
 import {
-    faMagnifyingGlass,
-    faSpinner,
     faPlus,
     faEllipsisVertical,
     faEarthAsia,
     faKeyboard,
     faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import images from '~/asset/images';
-import { Wrapper as PopperWrapper } from '~/component/Popper';
-import AcountSearch from '~/component/accountsItem/accountsSearch';
 import Button from '~/component/button';
 import Menu from '~/component/Popper/Menu';
 import ShowTitle from '~/component/Popper/showTittle';
 import {
-    Buisiness,
-    Coins,
-    Inbox,
-    Messages,
-    Question,
-    Setting,
+    BuisinessIcon,
+    CoinsIcon,
+    InboxIcon,
+    MessagesIcon,
+    QuestionIcon,
+    SettingIcon,
     UserIcon,
 } from '~/Icons';
 import Image from '~/Image';
+import Search from '../Search';
+
 const cx = classNames.bind(styles);
 const MenuItems = [
     {
@@ -45,7 +41,7 @@ const MenuItems = [
         },
     },
     {
-        icon: <Question />,
+        icon: <QuestionIcon />,
         to: '/feedback',
         title: 'Feedback and help',
     },
@@ -62,17 +58,17 @@ const userMenu = [
         title: 'View profile',
     },
     {
-        icon: <Coins />,
+        icon: <CoinsIcon />,
         to: '/coins',
         title: 'Get coins',
     },
     {
-        icon: <Buisiness />,
+        icon: <BuisinessIcon />,
         to: '/buisiness-suite',
         title: 'Buisiness suite',
     },
     {
-        icon: <Setting />,
+        icon: <SettingIcon />,
         to: '/setting',
         title: 'Setting',
     },
@@ -85,7 +81,6 @@ const userMenu = [
 ];
 let userAcount = true;
 function Header() {
-    const [searchResult, setSearchResult] = useState([]);
     const handleChange = useCallback((item) => {
         console.log(item);
     }, []);
@@ -96,42 +91,11 @@ function Header() {
                 <div className="logo">
                     <img src={images.logo} alt="Tiktok" />
                 </div>
-                <Tippy
-                    interactive
-                    visible={searchResult.length > 0}
-                    render={(attrs) => (
-                        <div
-                            className={cx('search-result')}
-                            tabIndex="-1"
-                            {...attrs}
-                        >
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>Accounts</h4>
-                                <AcountSearch />
-                                <AcountSearch />
-                                <AcountSearch />
-                                <AcountSearch />
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input
-                            type="text"
-                            placeholder="Search accounts and videos"
-                        />
 
-                        <button className={cx('clear')}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
-                        <button className={cx('loading')}>
-                            <FontAwesomeIcon icon={faSpinner} />
-                        </button>
-                        <button className={cx('search-icon')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
-                </Tippy>
+                <div>
+                    <Search />
+                </div>
+
                 <div className={cx('actions')}>
                     <Button
                         className={cx('custom-upload')}
@@ -146,7 +110,7 @@ function Header() {
                                     href="/message"
                                     className={cx('w-actions-i')}
                                 >
-                                    <Messages />
+                                    <MessagesIcon />
                                 </a>
                             </ShowTitle>
                             <ShowTitle content={'Inbox'}>
@@ -154,7 +118,10 @@ function Header() {
                                     className={cx('w-actions-i')}
                                     style={{ marginBottom: '6px' }}
                                 >
-                                    <Inbox />
+                                    <InboxIcon />
+                                    <span className={cx('notification')}>
+                                        35
+                                    </span>
                                 </div>
                             </ShowTitle>
                         </>
