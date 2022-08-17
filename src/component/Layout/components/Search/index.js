@@ -70,12 +70,15 @@ function Search() {
                     }
                     placeholder="Search accounts and videos"
                     onChange={(e) => {
-                        setSearchValue(e.target.value);
+                        const valueInput = e.target.value;
+                        setSearchValue(
+                            valueInput.startsWith(' ') ? '' : valueInput,
+                        );
                     }}
                     onFocus={handleShowPopperS}
                 />
 
-                {!!searchValue && searchValue !== ' ' && !loading && (
+                {!!searchValue && !loading && (
                     <button className={cx('clear')} onClick={hanleClearV}>
                         <FontAwesomeIcon icon={faCircleXmark} />
                     </button>
@@ -88,7 +91,12 @@ function Search() {
                     />
                 )}
 
-                <button className={cx('search-icon')}>
+                <button
+                    className={cx('search-icon')}
+                    onMouseDown={(e) => {
+                        e.preventDefault();
+                    }}
+                >
                     <SearchIcon width={24} height={24} />
                 </button>
             </div>

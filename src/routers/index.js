@@ -1,22 +1,23 @@
+import { routes } from '../config/routes';
 import Following from '~/pages/Following';
 import Home from '~/pages/Home';
 import Profile from '~/pages/Profile';
 import Upload from '~/component/Layout/Upload';
 const publicRoures = [
     {
-        path: '/',
+        path: routes.home,
         component: Home,
     },
     {
-        path: '/following',
+        path: routes.following,
         component: Following,
     },
     {
-        path: '/@:nickname',
+        path: routes.profile,
         component: Profile,
     },
     {
-        path: '/upload',
+        path: routes.upload,
         component: Upload,
         layout: null,
     },

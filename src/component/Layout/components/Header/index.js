@@ -3,6 +3,8 @@ import styles from './Header.module.scss';
 import { useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //
+import { Link } from 'react-router-dom';
+import { routes } from '~/config/routes';
 import {
     faPlus,
     faEllipsisVertical,
@@ -35,6 +37,18 @@ const MenuItems = [
             header: true,
             title: 'Language',
             data: [
+                { code: 'vi', title: 'Tiếng việt' },
+                { code: 'en', title: 'English' },
+                { code: 'vi', title: 'Tiếng việt' },
+                { code: 'en', title: 'English' },
+                { code: 'vi', title: 'Tiếng việt' },
+                { code: 'en', title: 'English' },
+                { code: 'vi', title: 'Tiếng việt' },
+                { code: 'en', title: 'English' },
+                { code: 'vi', title: 'Tiếng việt' },
+                { code: 'en', title: 'English' },
+                { code: 'vi', title: 'Tiếng việt' },
+                { code: 'en', title: 'English' },
                 { code: 'vi', title: 'Tiếng việt' },
                 { code: 'en', title: 'English' },
             ],
@@ -88,14 +102,14 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className="logo">
+                <Link to={routes.home} className="logo">
                     <img src={images.logo} alt="Tiktok" />
-                </div>
-
+                </Link>
+                {/* Using a wrapper <div> tag around the reference element solves
+                 this by creating a new parentNode context.  */}
                 <div>
                     <Search />
                 </div>
-
                 <div className={cx('actions')}>
                     <Button
                         className={cx('custom-upload')}

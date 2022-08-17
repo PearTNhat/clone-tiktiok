@@ -7,7 +7,12 @@ import { Wrapper as PopperWrapper } from '../../Popper';
 import MenuItem from './MenuItems';
 import Header from './Language/Header';
 const cx = classNames.bind(styles);
-function Menu({ items = [], onChange = () => {}, children }) {
+function Menu({
+    items = [],
+    onChange = () => {},
+    hideOnClick = false,
+    children,
+}) {
     const [history, setHistory] = useState([{ data: items }]);
     const currentItems = history[history.length - 1];
     const renderItems = () => {
@@ -31,6 +36,8 @@ function Menu({ items = [], onChange = () => {}, children }) {
     };
     return (
         <Tippy
+            // visible
+            hideOnClick={hideOnClick}
             offset={[10, 10]}
             delay={(700, null)}
             interactive
@@ -48,8 +55,14 @@ function Menu({ items = [], onChange = () => {}, children }) {
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('language-item')}>
+                            {renderItems()}
+                        </div>
                     </PopperWrapper>
+                    {/* fix bug number language <=4 */}
+                    {currentItems.data.length <= 3 && currentItems.header && (
+                        <div className={cx('overlay-bottom')}></div>
+                    )}
                 </div>
             )}
             onHide={() => setHistory(history.slice(0, 1))}
