@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import { useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 //
 import { Link } from 'react-router-dom';
 import config from '~/config';
@@ -64,7 +65,7 @@ const MenuItems = [
         title: 'Keyboard shortcuts',
     },
 ];
-//  la mang nên dãi phần tử trùng nhau k bị ghi đè
+//  la mảng nên dãi phần tử trùng nhau k bị ghi đè
 const userMenu = [
     {
         icon: <UserIcon />,
@@ -93,12 +94,11 @@ const userMenu = [
         title: 'Log in',
     },
 ];
-let userAcount = true;
+let userAccount = true;
 function Header() {
     const handleChange = useCallback((item) => {
         console.log(item);
     }, []);
-
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -117,7 +117,7 @@ function Header() {
                     >
                         <span className={cx('title-upload')}>Upload</span>
                     </Button>
-                    {userAcount ? (
+                    {userAccount ? (
                         <>
                             <ShowTitle content={'Messages'}>
                                 <a
@@ -147,10 +147,10 @@ function Header() {
 
                     {/* user and login */}
                     <Menu
-                        items={userAcount ? userMenu : MenuItems}
+                        items={userAccount ? userMenu : MenuItems}
                         onChange={handleChange}
                     >
-                        {userAcount ? (
+                        {userAccount ? (
                             <Image
                                 className={cx('user-img')}
                                 src=""

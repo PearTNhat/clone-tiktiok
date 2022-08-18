@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import Tippy from '@tippyjs/react/headless';
@@ -71,5 +72,10 @@ function Menu({
         </Tippy>
     );
 }
-
+Menu.prototype = {
+    items: PropTypes.array,
+    onChange: PropTypes.func,
+    hideOnClick: PropTypes.bool,
+    children: PropTypes.node.isRequired,
+};
 export default Menu;

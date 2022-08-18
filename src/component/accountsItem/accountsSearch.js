@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import styles from './accountsSearch.module.scss';
@@ -6,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from '~/Image';
 const cx = classNames.bind(styles);
-function AcountSearch({ data }) {
+function AccountSearch({ data }) {
     return (
         <Link className={cx('wrapper')} to={`/@${data.nickname}`}>
             <Image
@@ -26,5 +27,7 @@ function AcountSearch({ data }) {
         </Link>
     );
 }
-
-export default AcountSearch;
+AccountSearch.prototype = {
+    data: PropTypes.object,
+};
+export default AccountSearch;
