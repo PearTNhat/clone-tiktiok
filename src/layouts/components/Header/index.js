@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //
 import { Link } from 'react-router-dom';
-import { routes } from '~/config/routes';
+import config from '~/config';
 import {
     faPlus,
     faEllipsisVertical,
@@ -61,7 +61,7 @@ const MenuItems = [
     },
     {
         icon: <FontAwesomeIcon icon={faKeyboard} />,
-        title: 'Keyboard shotcuts',
+        title: 'Keyboard shortcuts',
     },
 ];
 //  la mang nên dãi phần tử trùng nhau k bị ghi đè
@@ -102,7 +102,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routes.home} className="logo">
+                <Link to={config.routes.home} className="logo">
                     <img src={images.logo} alt="Tiktok" />
                 </Link>
                 {/* Using a wrapper <div> tag around the reference element solves

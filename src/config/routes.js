@@ -1,6 +1,6 @@
 export const routes = {
     home: '/',
-    folowing: '/folowing',
+    following: '/following',
     profile: '/@:nickname',
     upload: '/upload',
 };

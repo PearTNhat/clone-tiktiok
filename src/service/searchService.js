@@ -1,4 +1,4 @@
-import * as request from '~/component/utils/request';
+import * as request from '~/utils/request';
 async function searchApi(q, type = 'less') {
     try {
         const response = await request.get('users/search', {

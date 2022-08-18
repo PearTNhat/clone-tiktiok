@@ -1,4 +1,3 @@
-import { faL } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 //
