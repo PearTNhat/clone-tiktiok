@@ -3,7 +3,7 @@ import Following from '~/pages/Following';
 import Home from '~/pages/Home';
 import Profile from '~/pages/Profile';
 import Upload from '~/layouts/Upload';
-const publicRoures = [
+const publicRoutes = [
     {
         path: config.routes.home,
         component: Home,
@@ -23,4 +23,4 @@ const publicRoures = [
     },
 ];
 const privateRoues = [];
-export { publicRoures, privateRoues };
+export { publicRoutes, privateRoues };

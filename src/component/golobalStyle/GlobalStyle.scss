@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
 @import 'normalize.css';
+
 :root {
     --primary: rgba(254, 44, 85, 1);
     --white: white;
@@ -9,35 +10,42 @@
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
 }
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
 // fonts embed
 @font-face {
     font-family: ProximaNova;
     src: url('/asset/fonts/Proxima-Nova-Bold.woff');
     font-weight: 700;
 }
+
 @font-face {
     font-family: ProximaNova;
     src: url('/asset/fonts/ProximaNova-Semibold.woff2');
     font-weight: 600;
 }
+
 @font-face {
     font-family: ProximaNova;
     src: url('/asset/fonts/Proxima-Nova-Regular.woff2');
     font-weight: 400;
 }
+
 @font-face {
     font-family: SofiaPro;
     src: url('/asset/fonts/sofiapro-bold.woff2');
     font-weight: 700;
 }
+
 html {
     font-size: 62.5%;
 }
+
 body {
     overflow-y: overlay;
     font-family: var(--font-family);
@@ -45,15 +53,18 @@ body {
     font-size: 1.6em;
     color: #333;
 }
+
 // scrollbar
 html *::-webkit-scrollbar {
     border-radius: 0;
     width: 8px;
 }
+
 html *::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0.15);
 }
+
 html *::-webkit-scrollbar-track {
     border-radius: 0;
     background-color: rgba(0, 0, 0, 0);
@@ -66,11 +77,12 @@ button,
     outline: none;
     font-family: var(--font-family);
 }
-a[href],
-a[to] {
+
+a {
     text-decoration: none;
     color: var(--text-color);
 }
+
 //tippy
 body {
     .tippy-svg-arrow {
