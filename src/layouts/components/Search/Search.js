@@ -7,10 +7,11 @@ import styles from './Search.module.scss';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/component/Popper';
-import AcountSearch from '~/component/accountsItem/AccountsSearch';
+import AccountSearch from '~/component/accountsItem/AccountsSearch';
 import { SearchIcon } from '~/Icons';
 import useDebounce from '~/component/hooks/useDebounce';
 import * as request from '~/service/searchService';
+import RenderAccount from './RenderAccount';
 //
 const cx = classNames.bind(styles);
 function Search() {
@@ -18,21 +19,21 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [loading, setLoading] = useState(false);
-    const debounce = useDebounce(searchValue, 600);
+    const debounceValue = useDebounce(searchValue, 600);
     const refInput = useRef();
     useEffect(() => {
-        if (!debounce.trim()) {
+        if (!debounceValue.trim()) {
             setSearchResult([]);
             return;
         }
         setLoading(true);
         const fetchApi = async () => {
-            const response = await request.searchApi(debounce);
+            const response = await request.searchApi(debounceValue);
             setSearchResult(response.data);
             setLoading(false);
         };
         fetchApi();
-    }, [debounce]);
+    }, [debounceValue]);
     const handleHiddenPopperS = () => {
         setShowPopperS(false);
     };
@@ -51,10 +52,7 @@ function Search() {
             render={(attrs) => (
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
-                        <h4 className={cx('search-title')}>Accounts</h4>
-                        {searchResult.map((item) => {
-                            return <AcountSearch data={item} key={item.id} />;
-                        })}
+                        <RenderAccount searchResult={searchResult} />
                     </PopperWrapper>
                 </div>
             )}
