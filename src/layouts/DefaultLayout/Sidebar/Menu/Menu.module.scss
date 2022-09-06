@@ -1,0 +1,43 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 8px 0px 8px 17px;
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+        border-radius: 4px;
+    }
+}
+
+.icon,
+.icon-active {
+    height: 32px;
+}
+
+.active .title,
+.active {
+    color: var(--primary);
+}
+
+.icon {
+    display: inline-block;
+}
+
+.icon-active {
+    display: none;
+}
+
+.active .icon {
+    display: none;
+}
+
+.active .icon-active {
+    display: inline-block;
+}
+
+.title {
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 8px;
+}

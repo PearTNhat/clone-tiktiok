@@ -102,7 +102,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={config.routes.home} className="logo">
+                <Link to={config.routes.home} className={cx('logo')}>
                     <img src={images.logo} alt="Tiktok" />
                 </Link>
                 {/* Using a wrapper <div> tag around the reference element solves
@@ -124,7 +124,7 @@ function Header() {
                                     href="/message"
                                     className={cx('w-actions-i')}
                                 >
-                                    <MessagesIcon />
+                                    <MessagesIcon width="26" height="26" />
                                 </a>
                             </ShowTitle>
                             <ShowTitle content={'Inbox'}>

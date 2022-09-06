@@ -3,15 +3,18 @@
     align-items: center;
     flex-direction: column;
 }
+
 .container {
     margin-top: var(--default-layout-header-height);
     width: var(--default-layout-width);
+    // khi màn hình nhỏ hơn -default-layout-width thì
+    // nó lấy max-width 100%
+    max-width: 100%;
     display: flex;
     justify-content: space-between;
 }
+
 .content {
-    max-width: 692px;
-    // khi content nhỏ hơn 692 thì nó lấy 692px
     width: 692px;
     height: 1000px;
 }
