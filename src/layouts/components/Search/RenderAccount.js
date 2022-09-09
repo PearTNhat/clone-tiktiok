@@ -9,7 +9,6 @@ function RenderAccount({ searchResult }) {
         <>
             <h4 className={cx('search-title')}>Accounts</h4>
             {searchResult.map((item) => {
-                console.log('re');
                 return <AccountSearch data={item} key={item.id} />;
             })}
         </>

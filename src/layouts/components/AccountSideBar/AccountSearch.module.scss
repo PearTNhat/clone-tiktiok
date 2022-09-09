@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    align-items: center;
+    padding: 4px 0px 4px 17px;
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.wrapper {
+    margin-left: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.userName {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.nickName {
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.tickBlue {
+    margin-left: 5px;
+    height: 14px;
+}

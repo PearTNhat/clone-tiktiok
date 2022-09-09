@@ -4,8 +4,10 @@
     width: 100%;
     min-width: 223px;
     max-height: calc(100vh - 56px);
+    min-height: 100px;
     padding-top: 8px;
     border-radius: 8px;
     background: rgb(255, 255, 255);
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+    overflow: auto;
 }

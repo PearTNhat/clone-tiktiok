@@ -1,5 +1,7 @@
 .container {
-    width: 348px;
+    --width-side-bar: 348px;
+    width: var(--width-side-bar);
+    padding-left: 10px;
 }
 
 .home-icon {

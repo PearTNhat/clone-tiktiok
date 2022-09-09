@@ -1,4 +1,4 @@
-export const UserIcon = ({ className, width = '32', height = '32' }) => {
+export const UserIcon = ({ className, width = '20', height = '20' }) => {
     return (
         <svg
             className={className}
@@ -16,7 +16,7 @@ export const UserIcon = ({ className, width = '32', height = '32' }) => {
         </svg>
     );
 };
-export const CoinsIcon = ({ className, width = '32', height = '32' }) => {
+export const CoinsIcon = ({ className, width = '20', height = '20' }) => {
     return (
         <svg
             className={className}
@@ -39,7 +39,7 @@ export const CoinsIcon = ({ className, width = '32', height = '32' }) => {
         </svg>
     );
 };
-export const BuisinessIcon = ({ className, width = '32', height = '32' }) => {
+export const BuisinessIcon = ({ className, width = '20', height = '20' }) => {
     return (
         <svg
             className={className}
@@ -57,7 +57,7 @@ export const BuisinessIcon = ({ className, width = '32', height = '32' }) => {
         </svg>
     );
 };
-export const SettingIcon = ({ className, width = '32', height = '32' }) => {
+export const SettingIcon = ({ className, width = '20', height = '20' }) => {
     return (
         <svg
             className={className}
@@ -75,7 +75,7 @@ export const SettingIcon = ({ className, width = '32', height = '32' }) => {
         </svg>
     );
 };
-export const MessagesIcon = ({ className, width = '32', height = '32' }) => {
+export const MessagesIcon = ({ className, width = '20', height = '20' }) => {
     return (
         <svg
             className={className}
@@ -93,7 +93,7 @@ export const MessagesIcon = ({ className, width = '32', height = '32' }) => {
         </svg>
     );
 };
-export const QuestionIcon = ({ className, width = '32', height = '32' }) => {
+export const QuestionIcon = ({ className, width = '20', height = '20' }) => {
     return (
         <svg
             className={className}
@@ -264,6 +264,26 @@ export const LiveIconSolid = ({ className, width = '32', height = '32' }) => {
             <path d="M6.5 17.5714C6.5 14.7292 8.86029 12.5 11.6782 12.5H27.8621C30.6799 12.5 33.0402 14.7292 33.0402 17.5714V18.6843L36.745 15.9435C37.6399 15.2815 38.8324 15.1731 39.8318 15.6537C40.8365 16.1369 41.5 17.1486 41.5 18.2857V29.7143C41.5 30.8514 40.8365 31.8631 39.8318 32.3463C38.8324 32.8269 37.6399 32.7185 36.745 32.0565L33.0402 29.3158V30.4286C33.0402 33.2708 30.6799 35.5 27.8621 35.5H11.6782C8.86029 35.5 6.5 33.2708 6.5 30.4286V17.5714Z"></path>
             <path
                 d="M23.25 23.134C23.9167 23.5189 23.9167 24.4811 23.25 24.866L17.25 28.3301C16.5833 28.715 15.75 28.2339 15.75 27.4641L15.75 20.5359C15.75 19.7661 16.5833 19.285 17.25 19.6699L23.25 23.134Z"
+                fill="white"
+            ></path>
+        </svg>
+    );
+};
+export const TickBlue = ({ className, width = '14', height = '14' }) => {
+    return (
+        <svg
+            className={className}
+            width={width}
+            height={height}
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <circle cx="24" cy="24" r="24" fill="#20D5EC"></circle>
+            <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M37.1213 15.8787C38.2929 17.0503 38.2929 18.9497 37.1213 20.1213L23.6213 33.6213C22.4497 34.7929 20.5503 34.7929 19.3787 33.6213L10.8787 25.1213C9.70711 23.9497 9.70711 22.0503 10.8787 20.8787C12.0503 19.7071 13.9497 19.7071 15.1213 20.8787L21.5 27.2574L32.8787 15.8787C34.0503 14.7071 35.9497 14.7071 37.1213 15.8787Z"
                 fill="white"
             ></path>
         </svg>
