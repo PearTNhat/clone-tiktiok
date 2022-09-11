@@ -6,7 +6,7 @@ import styles from './RenderAccountsSidebar.module.scss';
 const cx = classNames.bind(styles);
 function RenderAccountsSidebar({ title, data, isTippy }) {
     return (
-        <div className={cx('suggested-accounts')}>
+        <div className={cx('suggested-accounts', 'line-separate-sidebar')}>
             <h4 className={cx('suggested-accounts__text')}>{title}</h4>
             <AccountSideBar data={data} isTippy={isTippy} />
             <p className={cx('see')}>See all</p>

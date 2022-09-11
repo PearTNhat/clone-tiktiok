@@ -4,6 +4,7 @@ import Home from '~/pages/Home';
 import Profile from '~/pages/Profile';
 import Upload from '~/layouts/Upload';
 import Live from '~/pages/Live';
+import Tag from '~/pages/Tag';
 const publicRoutes = [
     {
         path: config.routes.home,
@@ -16,6 +17,10 @@ const publicRoutes = [
     {
         path: config.routes.live,
         component: Live,
+    },
+    {
+        path: config.routes.tag,
+        component: Tag,
     },
     {
         path: config.routes.profile,

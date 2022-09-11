@@ -87,6 +87,22 @@ a {
     color: var(--text-color);
 }
 
+.line-separate-sidebar {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 0.5px;
+        background: rgba(22, 24, 35, 0.12);
+    }
+
+}
+
 //tippy
 body {
     .tippy-svg-arrow {

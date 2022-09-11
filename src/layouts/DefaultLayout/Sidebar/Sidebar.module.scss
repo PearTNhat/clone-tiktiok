@@ -4,6 +4,36 @@
     padding-left: 10px;
 }
 
-.home-icon {
-    margin-top: 14px;
+.footer {
+    padding-left: 17px;
+    padding-top: 8px;
+
+}
+
+.footer__link {
+    display: inline-block;
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 17px;
+    margin-right: 6px;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.footer__line {
+    margin: 8px 0;
+}
+
+.footer__des {
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 17px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
 }

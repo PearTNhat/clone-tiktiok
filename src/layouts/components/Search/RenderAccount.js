@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import { memo } from 'react';
 //
 import AccountSearch from '~/component/accountsItem/AccountsSearch';

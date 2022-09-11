@@ -1,17 +1,5 @@
 .suggested-accounts {
-    position: relative;
     padding-top: 10px;
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        height: 0.5px;
-        background: rgba(22, 24, 35, 0.12);
-    }
 }
 
 .suggested-accounts__text {

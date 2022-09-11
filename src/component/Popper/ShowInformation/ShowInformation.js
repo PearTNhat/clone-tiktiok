@@ -40,7 +40,7 @@ function ShowInformation({ data, children }) {
                         <Link className={cx('nick-name')} to={`@${data.to}`}>
                             {data.nickName}
                         </Link>
-                        <p className={cx('more-information')}>
+                        <p className={cx('analysis')}>
                             <span className={cx('number')}>7.1M</span>
                             <span className={cx('text')}>Followers</span>
                             <span className={cx('number')}>3569M</span>
