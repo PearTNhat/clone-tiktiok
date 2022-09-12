@@ -17,6 +17,7 @@ function AccountSideBar({ data, isTippy = false }) {
                         className={cx('avatar')}
                         alt="avatar"
                         src={item.avatar}
+                        fallback="https://meta.vn/huong-dan/tong-hop/anh-meo-cute-de-thuong-dang-yeu-11558"
                     />
                     <div className={cx('wrapper')}>
                         <h4 className={cx('userName')}>

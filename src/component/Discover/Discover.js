@@ -3,7 +3,7 @@ import styles from './Discover.module.scss';
 const cx = classNames.bind(styles);
 function Discover({ children }) {
     return (
-        <div className={cx('container', 'line-separate-sidebar')}>
+        <div className={cx('container', 'line-separate-sidebar-w90per')}>
             <p className={cx('text')}>Discover</p>
             {children}
         </div>

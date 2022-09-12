@@ -1,0 +1,54 @@
+.image {
+    width: 56px;
+    height: 56px;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.post {
+    display: flex;
+}
+
+.wrapper {
+    margin-left: 12px;
+}
+
+.author {}
+
+.author-unique {
+    font-weight: 700;
+    font-size: 18px;
+    display: inline-block;
+}
+
+.author-nickname {
+    font-weight: 400;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.description__text {
+    display: inline-block;
+}
+
+.music {
+    display: flex;
+    align-items: center;
+    margin: 4px 0 6px 0;
+}
+
+.music__text {
+    font-size: 1.6rem;
+    margin-left: 4px;
+}
+
+.video {}
+
+.action {}
+
+.action__wrap {}
+
+.number {}

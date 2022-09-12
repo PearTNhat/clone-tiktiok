@@ -105,7 +105,7 @@ function Sidebar() {
                 <Tag data={hashTags} icon={<HashTagIcon />} />
                 <Tag data={musicTags} icon={<MusicNoteIcon />} />
             </Discover>
-            <footer className={cx('footer', 'line-separate-sidebar')}>
+            <footer className={cx('footer', 'line-separate-sidebar-w90per')}>
                 <div className={cx('footer__line')}>
                     <a href="/#" className={cx('footer__link')}>
                         hello

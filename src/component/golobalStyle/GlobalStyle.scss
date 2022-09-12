@@ -87,7 +87,7 @@ a {
     color: var(--text-color);
 }
 
-.line-separate-sidebar {
+.line-separate-sidebar-w90per-w90per {
     position: relative;
 
     &::before {
@@ -101,6 +101,21 @@ a {
         background: rgba(22, 24, 35, 0.12);
     }
 
+}
+
+.line-separate-sidebar-w90per-w100per {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 0.5px;
+        background: rgba(22, 24, 35, 0.12);
+    }
 }
 
 //tippy
