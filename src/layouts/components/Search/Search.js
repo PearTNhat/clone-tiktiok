@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Search.module.scss';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-import { Wrapper as PopperWrapper } from '~/component/Popper';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { SearchIcon } from '~/Icons';
-import useDebounce from '~/component/hooks/useDebounce';
+import useDebounce from '~/components/hooks/useDebounce';
 import * as request from '~/service/searchService';
 import RenderAccount from './RenderAccount';
 //

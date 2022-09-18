@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 //
-import AccountSideBar from '~/layouts/components/AccountSideBar';
+import AccountSideBar from '~/Layouts/Components/AccountSideBar';
 import styles from './RenderAccountsSidebar.module.scss';
 const cx = classNames.bind(styles);
 function RenderAccountsSidebar({ title, data, isTippy }) {

@@ -24,8 +24,8 @@ import Image from '~/Image';
 import Video from '~/Video';
 import { StoreData } from '~/data/StoreData';
 import TagInPost from './components/TagInPost';
-import ShowInformation from '~/component/Popper/ShowInformation';
-import MenuLogIn from '~/component/Popper/Menu';
+import ShowInformation from '~/components/Popper/ShowInformation';
+import MenuLogIn from '~/components/Popper/Menu';
 
 const methodShare = [
     {

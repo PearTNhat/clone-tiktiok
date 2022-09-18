@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import style from './AccountSearch.module.scss';
-import ShowInformation from '~/component/Popper/ShowInformation';
+import ShowInformation from '~/components/Popper/ShowInformation';
 import { Link } from 'react-router-dom';
 import Image from '~/Image';
 import { TickBlue } from '~/Icons';

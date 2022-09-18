@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { memo } from 'react';
 //
-import AccountSearch from '~/component/AccountsItem';
+import AccountSearch from '~/components/AccountsItem';
 import styles from './Search.module.scss';
 const cx = classNames.bind(styles);
 function RenderAccount({ searchResult }) {

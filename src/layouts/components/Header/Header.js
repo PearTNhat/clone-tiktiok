@@ -14,9 +14,9 @@ import {
     faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 import images from '~/asset/images';
-import Button from '~/component/Button';
-import MenuLogIn from '~/component/Popper/Menu';
-import ShowTitle from '~/component/Popper/showTittle';
+import Button from '~/components/Button';
+import MenuLogIn from '~/components/Popper/Menu';
+import ShowTitle from '~/components/Popper/showTittle';
 import {
     BuisinessIcon,
     CoinsIcon,

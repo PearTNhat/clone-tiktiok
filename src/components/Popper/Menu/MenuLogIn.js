@@ -6,7 +6,7 @@ import { roundArrow } from 'tippy.js';
 import { useEffect, useState } from 'react';
 import 'tippy.js/dist/svg-arrow.css';
 //
-import { Wrapper as PopperWrapper } from '../../Popper';
+import { Wrapper as PopperWrapper } from '..';
 import MenuItem from './MenuItems';
 import Header from './Language/Header';
 const cx = classNames.bind(styles);

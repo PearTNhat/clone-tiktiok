@@ -2,7 +2,7 @@ import config from '~/config';
 import Following from '~/pages/Following';
 import Home from '~/pages/Home';
 import Profile from '~/pages/Profile';
-import Upload from '~/layouts/Upload';
+import Upload from '~/Layouts/Upload';
 import Live from '~/pages/Live';
 import Tag from '~/pages/Tag';
 const publicRoutes = [

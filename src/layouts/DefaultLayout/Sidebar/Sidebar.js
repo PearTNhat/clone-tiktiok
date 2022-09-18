@@ -12,10 +12,10 @@ import {
 import config from '~/config';
 import Menu, { MenuItem } from './Menu';
 import styles from './Sidebar.module.scss';
-import RenderAccountsSidebar from '../../components/RenderAccountsSidebar';
-import Tag from '~/component/Tag';
+import RenderAccountsSidebar from '../../Components/RenderAccountsSidebar';
+import Tag from '~/components/Tag';
 import { HashTagIcon } from '~/Icons';
-import Discover from '~/component/Discover';
+import Discover from '~/components/Discover';
 //
 const cx = classNames.bind(styles);
 
