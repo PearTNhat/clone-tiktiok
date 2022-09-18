@@ -12,7 +12,7 @@ import {
 import config from '~/config';
 import Menu, { MenuItem } from './Menu';
 import styles from './Sidebar.module.scss';
-import RenderAccountsSidebar from '../../Components/RenderAccountsSidebar';
+import RenderAccountsSidebar from '../../components/RenderAccountsSidebar';
 import Tag from '~/components/Tag';
 import { HashTagIcon } from '~/components/Icons';
 import Discover from '~/components/Discover';
