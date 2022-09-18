@@ -3,8 +3,8 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 
 import styles from './ShowInformation.module.scss';
-import { TickBlue } from '~/Icons';
-import Image from '~/Image';
+import { TickBlue } from '~/components/Icons';
+import Image from '~/components/Image';
 import Button from '~/components/Button/Button';
 const cx = classNames.bind(styles);
 function ShowInformation({ data, children, separate }) {

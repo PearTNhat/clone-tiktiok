@@ -5,7 +5,7 @@ import styles from './accountsSearch.module.scss';
 import { Link } from 'react-router-dom';
 //
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Image from '~/Image';
+import Image from '~/components/Image';
 const cx = classNames.bind(styles);
 function AccountSearch({ data }) {
     return (

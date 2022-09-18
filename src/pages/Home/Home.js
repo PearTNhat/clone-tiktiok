@@ -19,9 +19,9 @@ import {
     EmailIcon,
     LineIcon,
     PinterestIcon,
-} from '~/Icons';
-import Image from '~/Image';
-import Video from '~/Video';
+} from '~/components/Icons';
+import Image from '~/components/Image';
+import Video from '~/components/Video';
 import { StoreData } from '~/data/StoreData';
 import TagInPost from './components/TagInPost';
 import ShowInformation from '~/components/Popper/ShowInformation';

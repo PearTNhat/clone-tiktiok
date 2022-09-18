@@ -25,8 +25,8 @@ import {
     QuestionIcon,
     SettingIcon,
     UserIcon,
-} from '~/Icons';
-import Image from '~/Image';
+} from '~/components/Icons';
+import Image from '~/components/Image';
 import Search from '../Search';
 
 const cx = classNames.bind(styles);

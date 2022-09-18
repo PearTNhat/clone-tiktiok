@@ -2,8 +2,8 @@ import classNames from 'classnames/bind';
 import style from './AccountSearch.module.scss';
 import ShowInformation from '~/components/Popper/ShowInformation';
 import { Link } from 'react-router-dom';
-import Image from '~/Image';
-import { TickBlue } from '~/Icons';
+import Image from '~/components/Image';
+import { TickBlue } from '~/components/Icons';
 const cx = classNames.bind(style);
 function AccountSideBar({ data, isTippy = false }) {
     let Comp = 'div';
