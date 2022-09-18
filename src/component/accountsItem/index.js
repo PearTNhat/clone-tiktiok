@@ -1,1 +1,1 @@
-export { default } from './AccountsSearch';
+export { default } from './AccountsItem';

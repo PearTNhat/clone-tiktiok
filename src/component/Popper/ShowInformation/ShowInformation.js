@@ -6,7 +6,7 @@ import styles from './ShowInformation.module.scss';
 import { TickBlue } from '~/Icons';
 import { Wrapper as PopperWrapper } from '../../Popper';
 import Image from '~/Image';
-import Button from '~/component/button/Button';
+import Button from '~/component/Button/Button';
 const cx = classNames.bind(styles);
 function ShowInformation({ data, children, separate }) {
     const handleRender = (attrs) => (
