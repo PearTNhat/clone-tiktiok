@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
 @import 'normalize.css';
+// @import 'tippy.js/dist/tippy.css';
 
 :root {
     --primary: rgba(254, 44, 85, 1);
@@ -52,6 +53,7 @@ html {
 
 body {
     overflow-y: overlay;
+    height: 100vh;
     font-family: var(--font-family);
     line-height: 1.5em;
     font-size: 1.6em;
@@ -83,11 +85,12 @@ button,
 }
 
 a {
+    display: inline-block;
     text-decoration: none;
     color: var(--text-color);
 }
 
-.line-separate-sidebar-w90per-w90per {
+.line-separate-sidebar-w90per {
     position: relative;
 
     &::before {
@@ -103,7 +106,7 @@ a {
 
 }
 
-.line-separate-sidebar-w90per-w100per {
+.line-separate-sidebar-w100per {
     position: relative;
 
     &::before {
@@ -122,5 +125,9 @@ a {
 body {
     .tippy-svg-arrow {
         fill: rgba(84, 84, 84, 0.92);
+    }
+
+    #tippy-1 {
+        z-index: 88 !important;
     }
 }

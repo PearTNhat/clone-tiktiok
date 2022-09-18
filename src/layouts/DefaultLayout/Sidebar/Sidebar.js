@@ -72,88 +72,92 @@ const musicTags = [
 function Sidebar() {
     return (
         <div className={cx('container')}>
-            <Menu>
-                <MenuItem
-                    to={config.routes.home}
-                    icon={<HomeIconRegular />}
-                    iconActive={<HomeIconSolid />}
-                    title="For You"
+            <div className={cx('div-wrapper')}>
+                <Menu>
+                    <MenuItem
+                        to={config.routes.home}
+                        icon={<HomeIconRegular />}
+                        iconActive={<HomeIconSolid />}
+                        title="For You"
+                    />
+                    <MenuItem
+                        to={config.routes.following}
+                        icon={<GroupIconRegular />}
+                        iconActive={<GroupIconSolid />}
+                        title="Following"
+                    />
+                    <MenuItem
+                        to={config.routes.live}
+                        icon={<LiveIconRegular />}
+                        iconActive={<LiveIconSolid />}
+                        title="Live"
+                    />
+                </Menu>
+                <RenderAccountsSidebar
+                    isTippy={true}
+                    title={'Suggested accounts'}
+                    data={suggestedUsers}
                 />
-                <MenuItem
-                    to={config.routes.following}
-                    icon={<GroupIconRegular />}
-                    iconActive={<GroupIconSolid />}
-                    title="Following"
+                <RenderAccountsSidebar
+                    title={'Following accounts'}
+                    data={suggestedUsers}
                 />
-                <MenuItem
-                    to={config.routes.live}
-                    icon={<LiveIconRegular />}
-                    iconActive={<LiveIconSolid />}
-                    title="Live"
-                />
-            </Menu>
-            <RenderAccountsSidebar
-                isTippy={true}
-                title={'Suggested accounts'}
-                data={suggestedUsers}
-            />
-            <RenderAccountsSidebar
-                title={'Following accounts'}
-                data={suggestedUsers}
-            />
-            <Discover>
-                <Tag data={hashTags} icon={<HashTagIcon />} />
-                <Tag data={musicTags} icon={<MusicNoteIcon />} />
-            </Discover>
-            <footer className={cx('footer', 'line-separate-sidebar-w90per')}>
-                <div className={cx('footer__line')}>
-                    <a href="/#" className={cx('footer__link')}>
-                        hello
-                    </a>
-                    <a href="/#" className={cx('footer__link')}>
-                        Help
-                    </a>
-                    <a href="/#" className={cx('footer__link')}>
-                        Safety
-                    </a>
-                    <a href="/#" className={cx('footer__link')}>
-                        hello
-                    </a>
-                    <a href="/#" className={cx('footer__link')}>
-                        hello
-                    </a>
-                    <a href="/#" className={cx('footer__link')}>
-                        hello
-                    </a>
-                    <a href="/#" className={cx('footer__link')}>
-                        hello
-                    </a>
-                </div>
-                <div className={cx('footer__line')}>
-                    <a href="/#" className={cx('footer__link')}>
-                        hello
-                    </a>
-                    <a href="/#" className={cx('footer__link')}>
-                        Help
-                    </a>
-                    <a href="/#" className={cx('footer__link')}>
-                        Safety
-                    </a>
-                    <a href="/#" className={cx('footer__link')}>
-                        hello
-                    </a>
-                    <a href="/#" className={cx('footer__link')}>
-                        hello
-                    </a>
-                    <a href="/#" className={cx('footer__link')}>
-                        hello
-                    </a>
-                    <a href="/#" className={cx('footer__link')}>
-                        hello
-                    </a>
-                </div>
-                <span className={cx('footer__des')}>© 2022 TikTok</span>
-            </footer>
+                <Discover>
+                    <Tag data={hashTags} icon={<HashTagIcon />} />
+                    <Tag data={musicTags} icon={<MusicNoteIcon />} />
+                </Discover>
+                <footer
+                    className={cx('footer', 'line-separate-sidebar-w90per')}
+                >
+                    <div className={cx('footer__line')}>
+                        <a href="/#" className={cx('footer__link')}>
+                            hello
+                        </a>
+                        <a href="/#" className={cx('footer__link')}>
+                            Help
+                        </a>
+                        <a href="/#" className={cx('footer__link')}>
+                            Safety
+                        </a>
+                        <a href="/#" className={cx('footer__link')}>
+                            hello
+                        </a>
+                        <a href="/#" className={cx('footer__link')}>
+                            hello
+                        </a>
+                        <a href="/#" className={cx('footer__link')}>
+                            hello
+                        </a>
+                        <a href="/#" className={cx('footer__link')}>
+                            hello
+                        </a>
+                    </div>
+                    <div className={cx('footer__line')}>
+                        <a href="/#" className={cx('footer__link')}>
+                            hello
+                        </a>
+                        <a href="/#" className={cx('footer__link')}>
+                            Help
+                        </a>
+                        <a href="/#" className={cx('footer__link')}>
+                            Safety
+                        </a>
+                        <a href="/#" className={cx('footer__link')}>
+                            hello
+                        </a>
+                        <a href="/#" className={cx('footer__link')}>
+                            hello
+                        </a>
+                        <a href="/#" className={cx('footer__link')}>
+                            hello
+                        </a>
+                        <a href="/#" className={cx('footer__link')}>
+                            hello
+                        </a>
+                    </div>
+                    <span className={cx('footer__des')}>© 2022 TikTok</span>
+                </footer>
+            </div>
         </div>
     );
 }

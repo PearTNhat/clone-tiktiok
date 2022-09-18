@@ -43,7 +43,7 @@ function ShowInformation({ data, children, separate }) {
                     <div
                         className={cx(
                             'w-description',
-                            'line-separate-sidebar-w90per-w100per',
+                            'line-separate-sidebar-w100per',
                         )}
                     >
                         <h2 className={cx('description')}>

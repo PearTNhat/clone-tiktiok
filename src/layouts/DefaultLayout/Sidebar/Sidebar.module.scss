@@ -1,7 +1,17 @@
 .container {
     --width-side-bar: 348px;
     width: var(--width-side-bar);
-    padding-left: 10px;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.div-wrapper {
+    width: var(--width-side-bar);
+    overflow: hidden auto;
+    position: fixed;
+    z-index: 99;
+    height: calc(100vh - var(--default-layout-header-height));
+    padding-bottom: 26px;
 }
 
 .footer {

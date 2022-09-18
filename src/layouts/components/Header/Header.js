@@ -15,7 +15,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import images from '~/asset/images';
 import Button from '~/component/button';
-import Menu from '~/component/Popper/Menu';
+import MenuLogIn from '~/component/Popper/Menu';
 import ShowTitle from '~/component/Popper/showTittle';
 import {
     BuisinessIcon,
@@ -154,10 +154,12 @@ function Header() {
                     )}
 
                     {/* user and login */}
-                    <Menu
+                    <MenuLogIn
                         setLogIn={setLogIn}
                         items={logIn ? userMenu : MenuItems}
                         onChange={handleChange}
+                        offset={[10, 10]}
+                        placement="bottom-start"
                     >
                         {logIn ? (
                             <Image
@@ -173,7 +175,7 @@ function Header() {
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
                             </button>
                         )}
-                    </Menu>
+                    </MenuLogIn>
                 </div>
             </div>
         </header>

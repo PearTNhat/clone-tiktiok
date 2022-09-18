@@ -1,16 +1,78 @@
 import classNames from 'classnames/bind';
-//
-import { StoreData } from '~/data/StoreData';
-import styles from './Home.module.scss';
-import Image from '~/Image';
-import Video from '~/Video';
-import { MessagesDotIcon, ShareIcon, MusicNoteIcon } from '~/Icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 //
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styles from './Home.module.scss';
+import {
+    MessagesDotIcon,
+    ShareIcon,
+    MusicNoteIcon,
+    EmbedIcon,
+    SendMessagesRedICon,
+    FacebookIcon,
+    WhatsAppIcon,
+    CopyLinkICon,
+    TwitterIcon,
+    LinkedinIcon,
+    TelegramIcon,
+    EmailIcon,
+    LineIcon,
+    PinterestIcon,
+} from '~/Icons';
+import Image from '~/Image';
+import Video from '~/Video';
+import { StoreData } from '~/data/StoreData';
 import TagInPost from './components/TagInPost';
 import ShowInformation from '~/component/Popper/ShowInformation';
+import MenuLogIn from '~/component/Popper/Menu';
+
+const methodShare = [
+    {
+        icon: <EmbedIcon />,
+        title: 'Embed',
+    },
+    {
+        icon: <SendMessagesRedICon />,
+        title: 'Send to friends',
+    },
+    {
+        icon: <FacebookIcon />,
+        title: 'Share to Facebook',
+    },
+    {
+        icon: <WhatsAppIcon />,
+        title: 'Share to WhatsApp',
+    },
+    {
+        icon: <CopyLinkICon />,
+        title: 'Copy link',
+    },
+    {
+        icon: <TwitterIcon />,
+        title: 'Share to Twitter',
+    },
+    {
+        icon: <LinkedinIcon />,
+        title: 'Share to Linkedin',
+    },
+    {
+        icon: <TelegramIcon />,
+        title: 'Share to Telegram',
+    },
+    {
+        icon: <EmailIcon />,
+        title: 'Share to Email',
+    },
+    {
+        icon: <LineIcon />,
+        title: 'Share to Line',
+    },
+    {
+        icon: <PinterestIcon />,
+        title: 'Share to Pinterest',
+    },
+];
 const cx = classNames.bind(styles);
 function Home() {
     return (
@@ -18,7 +80,7 @@ function Home() {
             {StoreData.postOfPerson.map((data) => (
                 <div className={cx('post')} key={data.id}>
                     {/* div : fix show tippy */}
-                    <div>
+                    <div className={cx('w-image')}>
                         <ShowInformation data={data} separate>
                             <Link to={data.to}>
                                 <Image
@@ -55,26 +117,37 @@ function Home() {
                         </div>
 
                         <div className={cx('video-container')}>
-                            <Video src={data.video} controls />
+                            <div className={cx('video')}>
+                                <Video src={data.video} controls />
+                            </div>
                             <div className={cx('action')}>
-                                <span className={cx('action__wrap')}>
-                                    <FontAwesomeIcon icon={faHeart} />
-                                    <span className={cx('number')}>
+                                <div className={cx('w-icon-number')}>
+                                    <span className={cx('action__icon')}>
+                                        <FontAwesomeIcon icon={faHeart} />
+                                    </span>
+                                    <span className={cx('action__number')}>
                                         {data.like}
                                     </span>
-                                </span>
-                                <span className={cx('action__wrap')}>
-                                    <MessagesDotIcon />
-                                    <span className={cx('number')}>
+                                </div>
+
+                                <div className={cx('w-icon-number')}>
+                                    <span className={cx('action__icon')}>
+                                        <MessagesDotIcon />
+                                    </span>
+                                    <span className={cx('action__number')}>
                                         {data.comment}
                                     </span>
-                                </span>
-                                <span className={cx('action__wrap')}>
-                                    <ShareIcon />
-                                    <span className={cx('number')}>
-                                        {data.share}
-                                    </span>
-                                </span>
+                                </div>
+                                <MenuLogIn items={methodShare}>
+                                    <div className={cx('w-icon-number')}>
+                                        <span className={cx('action__icon')}>
+                                            <ShareIcon />
+                                        </span>
+                                        <span className={cx('action__number')}>
+                                            {data.share}
+                                        </span>
+                                    </div>
+                                </MenuLogIn>
                             </div>
                         </div>
                     </div>

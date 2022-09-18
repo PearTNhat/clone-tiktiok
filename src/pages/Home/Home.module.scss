@@ -1,10 +1,23 @@
+.container {
+    padding: 24px 0;
+    margin: 0 16px;
+
+}
+
 .image {
     width: 56px;
     height: 56px;
-    max-width: 100%;
     object-fit: contain;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.w-image {
+    height: 56px;
+}
+
+.w-image:hover~.wrapper .author-unique {
+    text-decoration: underline;
 }
 
 .post {
@@ -15,12 +28,14 @@
     margin-left: 12px;
 }
 
-.author {}
-
 .author-unique {
     font-weight: 700;
     font-size: 18px;
     display: inline-block;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .author-nickname {
@@ -45,10 +60,41 @@
     margin-left: 4px;
 }
 
-.video {}
+.video-container {
+    display: flex;
+}
 
-.action {}
+.video {
+    height: calc(450px + (100vw - 768px) / 1152 * 100);
+    margin-right: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
 
-.action__wrap {}
+.action {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 
-.number {}
+.w-icon-number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.action__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    margin-top: 8px;
+    margin-bottom: 6px;
+    font-size: 24px;
+    border-radius: 50%;
+    background-color: rgba(22, 24, 35, .06);
+
+}
