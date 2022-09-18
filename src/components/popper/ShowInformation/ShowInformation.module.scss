@@ -1,0 +1,81 @@
+.container {
+    background-color: var(--white);
+    box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+    border-radius: 8px;
+    padding: 20px;
+    width: 320px;
+}
+
+.btn-follow {
+    width: 106px;
+    height: 34px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+.user-name {
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 22px;
+}
+
+.tickBlue {
+    margin-left: 5px;
+    height: 14px;
+}
+
+.nick-name {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.analysis {
+    margin-top: 8px;
+}
+
+.number {
+    font-weight: 700;
+    margin-right: 6px;
+    font-size: 1.7rem;
+    line-height: 20px;
+    display: inline-block;
+}
+
+.number~.number {
+    margin-left: 12px;
+}
+
+.text {
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 1.7rem;
+    line-height: 20px;
+    display: inline-block;
+}
+
+.w-description {
+    padding-top: 1px;
+    margin-top: 14px;
+}
+
+.description {
+    text-align: left;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: rgb(18, 18, 18);
+    white-space: pre-line;
+    margin-top: 14px;
+}
