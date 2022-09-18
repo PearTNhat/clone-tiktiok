@@ -1,1 +1,1 @@
-export { default } from './showTittle';
+export { default } from './ShowTittle';
