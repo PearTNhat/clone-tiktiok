@@ -7,7 +7,6 @@ import styles from './Search.module.scss';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/component/Popper';
-import AccountSearch from '~/component/accountsItem/AccountsSearch';
 import { SearchIcon } from '~/Icons';
 import useDebounce from '~/component/hooks/useDebounce';
 import * as request from '~/service/searchService';
