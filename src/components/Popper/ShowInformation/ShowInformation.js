@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import styles from './ShowInformation.module.scss';
 import { TickBlue } from '~/Icons';
-import { Wrapper as PopperWrapper } from '..';
 import Image from '~/Image';
 import Button from '~/components/Button/Button';
 const cx = classNames.bind(styles);

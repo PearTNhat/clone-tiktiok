@@ -16,7 +16,7 @@ import {
 import images from '~/asset/images';
 import Button from '~/components/Button';
 import MenuLogIn from '~/components/Popper/Menu';
-import ShowTitle from '~/components/Popper/showTittle';
+import ShowTitle from '~/components/Popper/ShowTittle';
 import {
     BuisinessIcon,
     CoinsIcon,

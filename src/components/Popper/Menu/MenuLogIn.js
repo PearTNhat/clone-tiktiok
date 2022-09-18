@@ -45,7 +45,6 @@ function MenuLogIn({
             );
         });
     };
-    const renderData = renderItems();
     return (
         <div className={cx('tippy')}>
             <Tippy
