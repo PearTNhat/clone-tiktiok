@@ -1,0 +1,32 @@
+.author-unique {
+    font-weight: 700;
+    font-size: 18px;
+    display: inline-block;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.author-nickname {
+    font-weight: 400;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.description__text {
+    display: inline-block;
+}
+
+.music {
+    display: flex;
+    align-items: center;
+    margin: 4px 0 6px 0;
+    cursor: pointer;
+}
+
+.music__text {
+    font-size: 1.6rem;
+    margin-left: 4px;
+}

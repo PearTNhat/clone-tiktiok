@@ -325,7 +325,7 @@ export const MusicNoteIcon = ({ className, width = '16', height = '16' }) => {
         </svg>
     );
 };
-export const MessagesDotIcon = ({ className, width = '24', height = '24' }) => {
+export const MessagesDotIcon = ({ className, width = '26', height = '26' }) => {
     return (
         <svg
             width={width}
@@ -342,7 +342,7 @@ export const MessagesDotIcon = ({ className, width = '24', height = '24' }) => {
         </svg>
     );
 };
-export const ShareIcon = ({ className, width = '24', height = '24' }) => {
+export const ShareIcon = ({ className, width = '26', height = '26' }) => {
     return (
         <svg
             width={width}
@@ -359,7 +359,7 @@ export const ShareIcon = ({ className, width = '24', height = '24' }) => {
         </svg>
     );
 };
-export const EmbedIcon = ({ className, width = '24', height = '24' }) => {
+export const EmbedIcon = ({ className, width = '26', height = '26' }) => {
     return (
         <svg
             width={width}
@@ -386,8 +386,8 @@ export const EmbedIcon = ({ className, width = '24', height = '24' }) => {
 };
 export const SendMessagesRedICon = ({
     className,
-    width = '24',
-    height = '24',
+    width = '26',
+    height = '26',
 }) => {
     return (
         <svg
@@ -412,7 +412,7 @@ export const SendMessagesRedICon = ({
         </svg>
     );
 };
-export const FacebookIcon = ({ className, width = '24', height = '24' }) => {
+export const FacebookIcon = ({ className, width = '26', height = '26' }) => {
     return (
         <svg
             width={width}
@@ -432,7 +432,7 @@ export const FacebookIcon = ({ className, width = '24', height = '24' }) => {
         </svg>
     );
 };
-export const WhatsAppIcon = ({ className, width = '24', height = '24' }) => {
+export const WhatsAppIcon = ({ className, width = '26', height = '26' }) => {
     return (
         <svg
             width={width}
@@ -456,7 +456,7 @@ export const WhatsAppIcon = ({ className, width = '24', height = '24' }) => {
         </svg>
     );
 };
-export const CopyLinkICon = ({ className, width = '24', height = '24' }) => {
+export const CopyLinkICon = ({ className, width = '26', height = '26' }) => {
     return (
         <svg
             width={width}
@@ -478,7 +478,7 @@ export const CopyLinkICon = ({ className, width = '24', height = '24' }) => {
         </svg>
     );
 };
-export const PinterestIcon = ({ className, width = '24', height = '24' }) => {
+export const PinterestIcon = ({ className, width = '26', height = '26' }) => {
     return (
         <svg
             width={width}
@@ -494,7 +494,7 @@ export const PinterestIcon = ({ className, width = '24', height = '24' }) => {
         </svg>
     );
 };
-export const LineIcon = ({ className, width = '24', height = '24' }) => {
+export const LineIcon = ({ className, width = '26', height = '26' }) => {
     return (
         <svg
             width={width}
@@ -532,7 +532,7 @@ export const LineIcon = ({ className, width = '24', height = '24' }) => {
         </svg>
     );
 };
-export const TwitterIcon = ({ className, width = '24', height = '24' }) => {
+export const TwitterIcon = ({ className, width = '26', height = '26' }) => {
     return (
         <svg
             width={width}
@@ -556,7 +556,7 @@ export const TwitterIcon = ({ className, width = '24', height = '24' }) => {
         </svg>
     );
 };
-export const LinkedinIcon = ({ className, width = '24', height = '24' }) => {
+export const LinkedinIcon = ({ className, width = '26', height = '26' }) => {
     return (
         <svg
             width={width}
@@ -581,7 +581,7 @@ export const LinkedinIcon = ({ className, width = '24', height = '24' }) => {
         </svg>
     );
 };
-export const TelegramIcon = ({ className, width = '24', height = '24' }) => {
+export const TelegramIcon = ({ className, width = '26', height = '26' }) => {
     return (
         <svg
             width={width}
@@ -609,7 +609,7 @@ export const TelegramIcon = ({ className, width = '24', height = '24' }) => {
         </svg>
     );
 };
-export const EmailIcon = ({ className, width = '24', height = '24' }) => {
+export const EmailIcon = ({ className, width = '26', height = '26' }) => {
     return (
         <svg
             width={width}

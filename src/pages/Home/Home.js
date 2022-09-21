@@ -7,7 +7,6 @@ import styles from './Home.module.scss';
 import {
     MessagesDotIcon,
     ShareIcon,
-    MusicNoteIcon,
     EmbedIcon,
     SendMessagesRedICon,
     FacebookIcon,
@@ -23,9 +22,9 @@ import {
 import Image from '~/components/Image';
 import Video from '~/components/Video';
 import { StoreData } from '~/data/StoreData';
-import TagInPost from './components/TagInPost';
+import Author from './components/Author';
 import ShowInformation from '~/components/popper/ShowInformation';
-import MenuLogIn from '~/components/popper/Menu';
+import { MenuLogIn as MenuShare } from '~/components/popper/Menu';
 
 const methodShare = [
     {
@@ -77,82 +76,76 @@ const cx = classNames.bind(styles);
 function Home() {
     return (
         <div className={cx('container')}>
-            {StoreData.postOfPerson.map((data) => (
-                <div className={cx('post')} key={data.id}>
-                    {/* div : fix show tippy */}
-                    <div className={cx('w-image')}>
-                        <ShowInformation data={data} separate>
-                            <Link to={data.to}>
-                                <Image
-                                    src={data.avatar}
-                                    className={cx('image')}
-                                    alt=""
-                                />
-                            </Link>
-                        </ShowInformation>
-                    </div>
-                    <div className={cx('wrapper')}>
-                        <div className={cx('author')}>
-                            <h3 className={cx('author-unique')}>
-                                {data.userName}
-                            </h3>
-                            <h4 className={cx('author-nickname')}>
-                                {data.nickName}
-                            </h4>
-                            <div className={'description'}>
-                                <span className={cx('description__text')}>
-                                    {data.description}
-                                </span>
-                                <TagInPost
-                                    className={cx('hashtag')}
-                                    hashtag={data.hashTag}
-                                />
-                            </div>
-                            <div className={cx('music')}>
-                                <MusicNoteIcon width="16" height="16" />
-                                <strong className={cx('music__text')}>
-                                    {`nhạc nền - ${data.originMusic}`}
-                                </strong>
-                            </div>
+            {StoreData.postOfPerson.map((data, i) => {
+                return (
+                    <div className={cx('post')} key={data.id}>
+                        {/* div : fix show tippy */}
+                        <div className={cx('w-image')}>
+                            <ShowInformation data={data} separate>
+                                <Link to={data.to}>
+                                    <Image
+                                        src={data.avatar}
+                                        className={cx('image')}
+                                        alt=""
+                                    />
+                                </Link>
+                            </ShowInformation>
                         </div>
-
-                        <div className={cx('video-container')}>
-                            <div className={cx('video')}>
-                                <Video src={data.video} controls />
-                            </div>
-                            <div className={cx('action')}>
-                                <div className={cx('w-icon-number')}>
-                                    <span className={cx('action__icon')}>
-                                        <FontAwesomeIcon icon={faHeart} />
-                                    </span>
-                                    <span className={cx('action__number')}>
-                                        {data.like}
-                                    </span>
+                        <div className={cx('wrapper')}>
+                            <Author data={data} />
+                            <div className={cx('video-container')}>
+                                <div className={cx('video')}>
+                                    <Video src={data.video} controls />
                                 </div>
-
-                                <div className={cx('w-icon-number')}>
-                                    <span className={cx('action__icon')}>
-                                        <MessagesDotIcon />
-                                    </span>
-                                    <span className={cx('action__number')}>
-                                        {data.comment}
-                                    </span>
-                                </div>
-                                <MenuLogIn items={methodShare}>
+                                <div className={cx('action')}>
                                     <div className={cx('w-icon-number')}>
                                         <span className={cx('action__icon')}>
-                                            <ShareIcon />
+                                            <FontAwesomeIcon icon={faHeart} />
                                         </span>
                                         <span className={cx('action__number')}>
-                                            {data.share}
+                                            {data.like}
                                         </span>
                                     </div>
-                                </MenuLogIn>
+
+                                    <div className={cx('w-icon-number')}>
+                                        <span className={cx('action__icon')}>
+                                            <MessagesDotIcon />
+                                        </span>
+                                        <span className={cx('action__number')}>
+                                            {data.comment}
+                                        </span>
+                                    </div>
+                                    <MenuShare
+                                        items={methodShare}
+                                        arrow={true}
+                                        offset={[78, 6]}
+                                        delay={[200, 500]}
+                                        classCompShare={cx('w-item-share')}
+                                        cssIcon={cx('icon-item-in-share')}
+                                        cssWrapIconText={cx('w-item')}
+                                        chevronIcon={true}
+                                        cssChevronIcon={cx('chevron-icon')}
+                                        howMany={5}
+                                    >
+                                        <div className={cx('w-icon-number')}>
+                                            <span
+                                                className={cx('action__icon')}
+                                            >
+                                                <ShareIcon />
+                                            </span>
+                                            <span
+                                                className={cx('action__number')}
+                                            >
+                                                {data.share}
+                                            </span>
+                                        </div>
+                                    </MenuShare>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            ))}
+                );
+            })}
         </div>
     );
 }

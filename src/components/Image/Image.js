@@ -19,7 +19,7 @@ function Image(
     };
     return (
         <img
-            className={(classNames(styles.wrapper), className)}
+            className={className}
             {...props}
             ref={ref}
             alt={alt}

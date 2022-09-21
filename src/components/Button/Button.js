@@ -16,6 +16,8 @@ function Button({
     text = false,
     leftIcon = false,
     rightIcon = false,
+    cssIcon = false,
+    cssTitle = false,
     disable = false,
     //
     className,
@@ -59,8 +61,15 @@ function Button({
             })}
             {..._props}
         >
-            {leftIcon && <span className={cx('icon')}> {leftIcon}</span>}
-            <span className={cx('title')}>{children}</span>
+            {leftIcon && (
+                <span className={cx('icon', { [cssIcon]: cssIcon })}>
+                    {' '}
+                    {leftIcon}
+                </span>
+            )}
+            <span className={cx('title', { [cssTitle]: cssTitle })}>
+                {children}
+            </span>
             {rightIcon && <span className={cx('icon')}> {rightIcon}</span>}
         </Comp>
     );

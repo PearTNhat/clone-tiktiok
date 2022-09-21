@@ -3,6 +3,20 @@
 
     .menu-item {
         margin-left: 0;
+        padding: 10px 8px 10px 16px;
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        text-align: left;
+        font-weight: 600;
+        font-size: 1.6rem;
+
+        &:hover {
+            background: rgba(22, 24, 35, 0.03);
+        }
     }
 }
 
@@ -10,28 +24,14 @@
     padding-bottom: 8px;
 }
 
-a.menu-item {
-    display: flex;
-    align-items: center;
-
+.wrapper-items {
+    position: relative;
 }
 
-a.menu-item,
-.menu-item {
-    width: 100%;
-    text-align: left;
-    font-weight: 600;
-    font-size: 1.6rem;
-    line-height: 22px;
-    padding: 9px 12px;
-
-    &:hover {
-        background-color: rgba(22, 24, 35, 0.06);
-    }
-}
-
-.language-item {
+.render-item {
     overflow: hidden auto;
+    text-align: center;
+
 }
 
 .separate {
@@ -47,4 +47,22 @@ a.menu-item,
 
 .tippy {
     z-index: 1 !important;
+}
+
+.arrow {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -16px;
+    left: 26px;
+    width: 0px;
+    height: 0px;
+    border: 8px solid transparent;
+    border-color: white transparent transparent transparent;
+}
+
+.w-chevron-icon {
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
 }

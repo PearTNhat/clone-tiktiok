@@ -15,7 +15,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import images from '~/asset/images';
 import Button from '~/components/Button';
-import MenuLogIn from '~/components/popper/Menu';
+import { MenuLogIn } from '~/components/popper/Menu';
 import ShowTitle from '~/components/popper/ShowTittle';
 import {
     BuisinessIcon,
@@ -157,8 +157,10 @@ function Header() {
                     <MenuLogIn
                         setLogIn={setLogIn}
                         items={logIn ? userMenu : MenuItems}
+                        cssIcon={cx('w-item')}
                         onChange={handleChange}
                         offset={[10, 10]}
+                        delay={[0, 400]}
                         placement="bottom-start"
                     >
                         {logIn ? (
