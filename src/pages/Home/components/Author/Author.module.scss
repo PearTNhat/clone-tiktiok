@@ -1,3 +1,12 @@
+.author {
+    display: flex;
+    justify-content: space-between;
+}
+
+.author-and-follow {
+    margin-right: 12px;
+}
+
 .author-unique {
     font-weight: 700;
     font-size: 18px;
@@ -29,4 +38,8 @@
 .music__text {
     font-size: 1.6rem;
     margin-left: 4px;
+}
+
+.follow-btn {
+    height: 36px;
 }

@@ -1,8 +1,8 @@
 import { forwardRef, useState } from 'react';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 
 import images from '~/asset/images';
-import styles from './Image.module.scss';
+// import styles from './Image.module.scss';
 function Image(
     {
         alt,

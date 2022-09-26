@@ -20,11 +20,11 @@ import {
     PinterestIcon,
 } from '~/components/Icons';
 import Image from '~/components/Image';
-import Video from '~/components/Video';
 import { StoreData } from '~/data/StoreData';
 import Author from './components/Author';
 import ShowInformation from '~/components/popper/ShowInformation';
 import { MenuLogIn as MenuShare } from '~/components/popper/Menu';
+import WrapperVideo from './components/WrapperVideo/WrapperVideo';
 
 const methodShare = [
     {
@@ -77,8 +77,14 @@ function Home() {
     return (
         <div className={cx('container')}>
             {StoreData.postOfPerson.map((data, i) => {
+                // if (i >= 1) return;
                 return (
-                    <div className={cx('post')} key={data.id}>
+                    <div
+                        className={cx('post', {
+                            'line-separate-sidebar-w100per': data.id !== 1,
+                        })}
+                        key={data.id}
+                    >
                         {/* div : fix show tippy */}
                         <div className={cx('w-image')}>
                             <ShowInformation data={data} separate>
@@ -94,9 +100,10 @@ function Home() {
                         <div className={cx('wrapper')}>
                             <Author data={data} />
                             <div className={cx('video-container')}>
-                                <div className={cx('video')}>
-                                    <Video src={data.video} controls />
-                                </div>
+                                {/* <div className={cx('video')}>
+                                    <Video data={data} controls />
+                                </div> */}
+                                <WrapperVideo data={data} />
                                 <div className={cx('action')}>
                                     <div className={cx('w-icon-number')}>
                                         <span className={cx('action__icon')}>
