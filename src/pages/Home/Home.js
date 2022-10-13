@@ -100,9 +100,6 @@ function Home() {
                         <div className={cx('wrapper')}>
                             <Author data={data} />
                             <div className={cx('video-container')}>
-                                {/* <div className={cx('video')}>
-                                    <Video data={data} controls />
-                                </div> */}
                                 <WrapperVideo data={data} />
                                 <div className={cx('action')}>
                                     <div className={cx('w-icon-number')}>

@@ -1,12 +1,223 @@
 $sizeVideo: calc(450px + ((100vw - 768px) / 1152) * 100);
 
+
 :export {
     sizeVideo: $sizeVideo;
 }
 
-.wrapper-video {
+
+
+.container {
+    position: relative;
     margin-right: 20px;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
+
+    &:hover .controls-container {
+        opacity: 1;
+    }
+}
+
+.video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.controls-container {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: 0px;
+    // opacity: 0;
+    cursor: default;
+    transition: opacity 0.2s linear;
+}
+
+.controls-container.scrubbing {
+    opacity: 1;
+
+    .time-line {
+        display: block;
+        height: 4px;
+        --scale-timeline: 1.2;
+    }
+
+    .time-line::before {
+        display: block;
+        --scaleX: 1;
+        --scaleY: calc(10/ 12);
+    }
+}
+
+.play-mute-volume {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.play-mute {
+    cursor: pointer;
+}
+
+.play-pause-icon {
+    font-size: 20px;
+    color: white;
+}
+
+.volume-container {
+    color: rgb(255, 255, 255);
+}
+
+
+.time-line-container {
+    display: flex;
+    align-items: center;
+    height: 14px;
+    margin-inline: 10px;
+    flex: 1;
+
+    &:hover .time-line {
+        height: 4px;
+        --scale-timeline: 1.2;
+    }
+
+    &:hover .time-line::before {
+        display: block;
+        --scaleX: 1;
+        // do scale 1.2 thi cai nay tang len 2 px nen phai
+        // giam 2 px
+        --scaleY: calc(10/ 12);
+    }
+}
+
+
+
+.time-line {
+    --scale-timeline: 1;
+    --progress: 0;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 2px;
+    width: 100%;
+    transform-origin: left;
+    transform: scaleY(var(--scale-timeline));
+    transition: transform 0.1s linear;
+    cursor: pointer;
+}
+
+.time-line::after {
+    pointer-events: none;
+    position: absolute;
+    content: '';
+    height: 100%;
+    right: calc(100% - (var(--progress) * 100%));
+    left: 0;
+    background-color: rgb(255, 255, 255);
+}
+
+.time-line::before {
+    display: none;
+    --scaleX: 0;
+    --scaleY: 0;
+    position: absolute;
+    content: '';
+    left: calc(var(--progress) * 100%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(var(--scaleX), var(--scaleY));
+    transition: transform 0.1s ease-in-out;
+    user-select: none;
+    z-index: 2;
+}
+
+.volume-container {
+    position: relative;
+    cursor: pointer;
+
+    &:hover .overlay {
+        display: block;
+    }
+}
+
+.volume-container.scrubbingVolume {
+    .overlay {
+        display: block;
+    }
+}
+
+.volume-container::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 40px;
+    top: -20px;
+    left: 4px;
+    cursor: default;
+    background-color: transparent;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 10px);
+    width: 24px;
+    height: 70px;
+    border-radius: 20px;
+    background-color: rgba(2, 2, 2, 0.662);
+}
+
+.process-volume {
+    --progress: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3px;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.process-volume::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    top: calc(100% - (var(--progress) * 100%));
+    bottom: 0;
+    background-color: rgb(255, 255, 255);
+    // cursor: pointer;
+    z-index: 1;
+}
+
+
+.process-volume::before {
+    content: '';
+    position: absolute;
+    bottom: calc(var(--progress) * 100%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.time-lime-time-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 8px;
+}
+
+.time-video {
+    color: white;
+    font-size: 1.2rem;
 }
