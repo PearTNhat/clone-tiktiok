@@ -8,8 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 export let isScrubbingVolume = false;
-function WrapperVideo({ data, index }) {
-    // const [isScrubbing, setIsScrubbing] = useState(false);
+function WrapperVideo({ data }) {
+    const [check, setCheck] = useState(false);
     const refVideo = useRef(null);
     const refVolume = useRef();
     const currentTimeElmt = useRef();
@@ -24,7 +24,9 @@ function WrapperVideo({ data, index }) {
         toggleScrubbingProgress,
         handleTime,
     } = useVideoPlayer(refVideo.current);
+
     const [ratoVideo] = useState(() => data.width / data.height);
+
     const handleTimeUpDate = () => {
         const progress =
             refVideo.current.currentTime / refVideo.current.duration;
@@ -52,12 +54,12 @@ function WrapperVideo({ data, index }) {
             });
         }
         if (isScrubbingVolume) {
-            handleAdjustVolume(e);
+            toggleScrubbingVolume(e);
         }
         document.removeEventListener('mousemove', handleMouseMoveDoc);
         document.removeEventListener('mouseup', handleMouseUpDoc);
     };
-    const handleMouseMoveDoc = (e) => {
+    function handleMouseMoveDoc(e) {
         if (isScrubbing) {
             e.preventDefault();
             handleUpdateTimeline(e);
@@ -66,36 +68,54 @@ function WrapperVideo({ data, index }) {
             e.preventDefault();
             handleAdjustVolume(e);
         }
-    };
-    const handleAdjustVolume = (e) => {
-        const rect = refVolume.current.getBoundingClientRect();
+    }
+    const toggleScrubbingVolume = (e) => {
         isScrubbingVolume = e.buttons === 1;
         volumeContainer.current.classList.toggle(
             cx('scrubbingVolume'),
             isScrubbingVolume,
         );
+    };
+    const handleAdjustVolume = (e) => {
+        const rect = refVolume.current.getBoundingClientRect();
         const percent =
             1 -
             Math.min(Math.max(e.clientY - rect.y, 0), rect.height) /
                 rect.height;
         refVolume.current.style.setProperty('--progress', percent);
         refVideo.current.volume = percent;
-        if (percent === 0 && playerState.isMuted === false) toggleMute();
-        if (playerState.isMuted === true && percent !== 0) {
+        if (percent === 0 && playerState.isMuted === false) {
             toggleMute();
+            setCheck(true);
+        }
+        if (playerState.isMuted && percent !== 0) {
+            toggleMute();
+            setCheck(true);
         }
     };
     const handleAddEventDoc = () => {
         document.addEventListener('mousemove', handleMouseMoveDoc);
     };
     useEffect(() => {
+        if (check) {
+            document.addEventListener('mousemove', handleMouseMoveDoc);
+            document.addEventListener('mouseup', handleMouseUpDoc);
+        }
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMoveDoc);
+            document.removeEventListener('mouseup', handleMouseUpDoc);
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [check, playerState.isMuted]);
+
+    useEffect(() => {
         let volume = refVideo.current.volume;
         if (playerState.isMuted) {
             volume = 0;
         }
         refVolume.current.style.setProperty('--progress', volume);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [refVideo.current]);
+    }, [playerState.isMuted]);
+
     return (
         <div
             className={cx('container')}
@@ -140,7 +160,8 @@ function WrapperVideo({ data, index }) {
                         <div className={cx('overlay')}>
                             <div
                                 onMouseDown={(e) => {
-                                    handleAdjustVolume(e);
+                                    handleAdjustVolume(e, playerState);
+                                    toggleScrubbingVolume(e);
                                     document.addEventListener(
                                         'mouseup',
                                         handleMouseUpDoc,
@@ -151,7 +172,14 @@ function WrapperVideo({ data, index }) {
                                 className={cx('process-volume')}
                             ></div>
                         </div>
-                        <div className={cx('volume-icon')} onClick={toggleMute}>
+                        <div
+                            className={cx('volume-icon')}
+                            onClick={(e) => {
+                                if (refVideo.current.volume === 0)
+                                    refVideo.current.volume = 1;
+                                toggleMute();
+                            }}
+                        >
                             {playerState.isMuted ? (
                                 <VolumeMutedIcon />
                             ) : (

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 export let isScrubbing = false;
 const cx = classNames.bind();
-
+let wasPaused = true;
 function useVideoPlayer(videoElement) {
     const [playerState, setPlayerState] = useState({
         isPlaying: false,
@@ -23,10 +23,6 @@ function useVideoPlayer(videoElement) {
         const minutes = Math.floor(time / 60) % 60;
         const hours = Math.floor(time / 3600);
         if (hours === 0) {
-            console.log(
-                seconds,
-                `${formatTime(minutes)}:${formatTime(seconds)}`,
-            );
             return `${formatTime(minutes)}:${formatTime(seconds)}`;
         } else {
             return `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(
@@ -34,7 +30,7 @@ function useVideoPlayer(videoElement) {
             )}`;
         }
     }
-    const [wasPaused, setWasPaused] = useState(true);
+
     // play
     const togglePlay = () => {
         setPlayerState({
@@ -48,9 +44,11 @@ function useVideoPlayer(videoElement) {
     }, [playerState.isPlaying, videoElement]);
     // mute
     const toggleMute = () => {
-        setPlayerState({
-            ...playerState,
-            isMuted: !playerState.isMuted,
+        setPlayerState((prev) => {
+            setPlayerState({
+                ...playerState,
+                isMuted: !playerState.isMuted,
+            });
         });
     };
     useEffect(() => {
@@ -58,7 +56,10 @@ function useVideoPlayer(videoElement) {
         videoElement.muted = playerState.isMuted ? true : false;
     }, [playerState.isMuted, videoElement]);
     //toggle Scrubbing
-    const toggleScrubbingProgress = (e, { refTimeLine, refControlContainer }) =>
+    const toggleScrubbingProgress = (
+        e,
+        { refTimeLine, refControlContainer, videoElement },
+    ) =>
         // refTimeLine dùng để add progress
         // refControlContainer dùng để add scrubbing
         {
@@ -68,11 +69,13 @@ function useVideoPlayer(videoElement) {
             isScrubbing = e.buttons === 1;
             refControlContainer.classList.toggle(cx('scrubbing'), isScrubbing);
             if (isScrubbing) {
-                setWasPaused(videoElement.paused);
+                wasPaused = videoElement.paused;
                 videoElement.pause();
             } else if (e.buttons === 0) {
                 refTimeLine.style.setProperty('--progress', percent);
-                videoElement.currentTime = percent * videoElement.duration;
+                videoElement.currentTime = Math.floor(
+                    percent * videoElement.duration,
+                );
                 if (!wasPaused) {
                     videoElement.play();
                 }
