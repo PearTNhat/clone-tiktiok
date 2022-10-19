@@ -40,15 +40,14 @@ function useVideoPlayer(videoElement) {
     };
     useEffect(() => {
         if (videoElement === null) return;
+        // console.log(playerState);
         playerState.isPlaying ? videoElement.play() : videoElement.pause();
-    }, [playerState.isPlaying, videoElement]);
+    }, [playerState.isPlaying]);
     // mute
     const toggleMute = () => {
-        setPlayerState((prev) => {
-            setPlayerState({
-                ...playerState,
-                isMuted: !playerState.isMuted,
-            });
+        setPlayerState({
+            ...playerState,
+            isMuted: !playerState.isMuted,
         });
     };
     useEffect(() => {

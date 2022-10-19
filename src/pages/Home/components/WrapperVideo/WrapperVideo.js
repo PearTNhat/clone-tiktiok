@@ -85,6 +85,7 @@ function WrapperVideo({ data }) {
         refVolume.current.style.setProperty('--progress', percent);
         refVideo.current.volume = percent;
         if (percent === 0 && playerState.isMuted === false) {
+            console.log('d');
             toggleMute();
             setCheck(true);
         }
