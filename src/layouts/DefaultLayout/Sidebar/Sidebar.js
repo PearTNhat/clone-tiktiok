@@ -22,7 +22,7 @@ const cx = classNames.bind(styles);
 const suggestedUsers = [
     {
         id: 1,
-        avatar: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/f89b316574f8f0ab300e20d4b7ff6a29~c5_100x100.jpeg?x-expires=1662724800&x-signature=gQQzFJn%2FnNBZ3v5XGa1yd5phJ%2F0%3D',
+        avatar: 'https://img.meta.com.vn/Data/image/2021/09/22/anh-meo-cute-de-thuong-dang-yeu-44.jpg',
         userName: 'hoaa.hanassii',
         nickName: 'Đào Lê Phương Hoa',
         to: 'hoa.asaa',
@@ -30,7 +30,7 @@ const suggestedUsers = [
     },
     {
         id: 2,
-        avatar: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/f89b316574f8f0ab300e20d4b7ff6a29~c5_100x100.jpeg?x-expires=1662724800&x-signature=gQQzFJn%2FnNBZ3v5XGa1yd5phJ%2F0%3D',
+        avatar: 'https://img.meta.com.vn/Data/image/2021/09/22/anh-meo-cute-de-thuong-dang-yeu-44.jpg',
         userName: 'hoaa.hanassii',
         nickName: 'Đạt villa',
         to: 'davvila',
@@ -38,7 +38,7 @@ const suggestedUsers = [
     },
     {
         id: 3,
-        avatar: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/f89b316574f8f0ab300e20d4b7ff6a29~c5_100x100.jpeg?x-expires=1662724800&x-signature=gQQzFJn%2FnNBZ3v5XGa1yd5phJ%2F0%3D',
+        avatar: 'https://img.meta.com.vn/Data/image/2021/09/22/anh-meo-cute-de-thuong-dang-yeu-44.jpg',
         userName: 'hoaa.hanassii',
         nickName: 'Đạt villamik',
         to: 'hoa.asaaZZZ',

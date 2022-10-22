@@ -4,7 +4,7 @@ export const postOfPerson = [
     {
         id: 1,
         to: '/@duyen',
-        avatar: 'https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/1d434d437e36aba6a20e57035a62b207.jpeg?x-expires=1663077600&x-signature=Kp%2FAS940OG%2B36ezZtZDw6mpsOyA%3D',
+        avatar: 'https://img.meta.com.vn/Data/image/2021/09/22/anh-meo-cute-de-thuong-dang-yeu-44.jpg',
         userName: 'duyenkendy_official',
         nickName: 'Duyên Kendy',
         video: storeageVideo.abc,
@@ -20,7 +20,7 @@ export const postOfPerson = [
     {
         id: 2,
         to: '/@hoa',
-        avatar: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/0f3efc32943d959dba18042bc7714cae~c5_100x100.jpeg?x-expires=1663081200&x-signature=UXcvLzXK5R6%2FfoXOEWce3qY6MF0%3D',
+        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD4Q0sDPKdoArvNRBrtaaxhNvYya_sLpG9LmlNMrj-mg&s',
         userName: 'duongtamca',
         nickName: 'Đường Tam Ca',
         video: storeageVideo.thuy_trieu_len_cao,
@@ -36,7 +36,7 @@ export const postOfPerson = [
     {
         id: 3,
         to: '/@zzz',
-        avatar: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/f89b316574f8f0ab300e20d4b7ff6a29~c5_100x100.jpeg?x-expires=1663081200&x-signature=q73jrn6kVPtOYyV9uulIfw0mnhw%3D',
+        avatar: 'https://img.meta.com.vn/Data/image/2021/09/20/anh-meo-che-anh-meo-bua-18.jpg',
         userName: 'hoaa.hanassii',
         nickName: 'Đào Lê Phương Hoa',
         video: storeageVideo.thuyen_quyen,
@@ -52,7 +52,7 @@ export const postOfPerson = [
     {
         id: 4,
         to: '/@hoa',
-        avatar: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/d07bb5bd6bf1d4a031790f640c97fa65~c5_100x100.jpeg?x-expires=1663077600&x-signature=ixA84Qogq%2BeDZReJi%2FcwjUUodxs%3D',
+        avatar: 'https://i.pinimg.com/564x/05/09/94/050994962c61328795f2568b4c51c0ab.jpg',
         userName: 'nhachay1091',
         nickName: 'Nhạc Remix',
         video: storeageVideo.thuyen_quyen,
@@ -68,7 +68,7 @@ export const postOfPerson = [
     {
         id: 5,
         to: '/@hoa',
-        avatar: 'https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/1d434d437e36aba6a20e57035a62b207.jpeg?x-expires=1663077600&x-signature=Kp%2FAS940OG%2B36ezZtZDw6mpsOyA%3D',
+        avatar: 'https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2020/8/21/829850/Bat-Cuoi-Truoc-Nhung-07.jpg',
         userName: 'Azaki',
         nickName: 'Tiêu Viêm',
         video: storeageVideo.videoTo,
