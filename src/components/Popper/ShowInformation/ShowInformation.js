@@ -8,6 +8,20 @@ import Image from '~/components/Image';
 import Button from '~/components/Button/Button';
 const cx = classNames.bind(styles);
 function ShowInformation({ data, children, separate }) {
+    function formatDecimal(number) {
+        const stringNum = number.toString();
+        let num = stringNum.split('.')[0];
+        let decimal = stringNum.split('.')[1];
+        return `${num}.${decimal[0]}`;
+    }
+    function formatNumber(number) {
+        if (number === undefined) return '';
+        const countNum = number.toString().length;
+        if (countNum >= 4 && countNum < 7)
+            return `${formatDecimal(number / 1000)}K`;
+        if (countNum >= 7) return `${formatDecimal(number / 1000000)}M`;
+        return number;
+    }
     const handleRender = (attrs) => (
         <div className="box" tabIndex="-1" {...attrs}>
             <div className={cx('container')}>
@@ -21,21 +35,25 @@ function ShowInformation({ data, children, separate }) {
                         Follow
                     </Button>
                 </div>
-                <Link className={cx('user-name')} to={`@${data.to}`}>
-                    {data.userName}
-                    {data.isTick && (
+                <Link className={cx('user-name')} to={`@${data.nickname}`}>
+                    {`${data.first_name} ${data.last_name}`}
+                    {data.tick && (
                         <span className={cx('tickBlue')}>
                             <TickBlue />
                         </span>
                     )}
                 </Link>
-                <Link className={cx('nick-name')} to={`@${data.to}`}>
-                    {data.nickName}
+                <Link className={cx('nick-name')} to={`@${data.nickname}`}>
+                    {data.nickname}
                 </Link>
                 <p className={cx('analysis')}>
-                    <span className={cx('number')}>7.1M</span>
+                    <span className={cx('number')}>
+                        {formatNumber(data.followers_count)}
+                    </span>
                     <span className={cx('text')}>Followers</span>
-                    <span className={cx('number')}>3569M</span>
+                    <span className={cx('number')}>
+                        {formatNumber(data.likes_count)}
+                    </span>
                     <span className={cx('text')}>Likes</span>
                 </p>
                 {separate && (
@@ -57,7 +75,6 @@ function ShowInformation({ data, children, separate }) {
         <Tippy
             offset={[0, 0]}
             interactive
-            // visible
             delay={[500, 0]}
             placement="bottom-start"
             render={handleRender}

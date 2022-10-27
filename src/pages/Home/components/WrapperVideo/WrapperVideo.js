@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { useState, useRef, useEffect } from 'react';
 //
 import styles from './WrapperVideo.module.scss';
-import useVideoPlayer, { isScrubbing } from '~/hooks/useVideoPlayer';
+import useVideoPlayer from '~/hooks/useVideoPlayer';
 import { VolumeHightIcon, VolumeMutedIcon } from '~/components/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -12,13 +12,14 @@ function WrapperVideo({ data }) {
     const [check, setCheck] = useState(false);
     const refVideo = useRef(null);
     const refVolume = useRef();
-    const currentTimeElmt = useRef();
+    const currentTimeElemt = useRef();
     const durationElmt = useRef();
     const volumeContainer = useRef();
     const refTimeLine = useRef();
     const refControlContainer = useRef();
     const {
         playerState,
+        isScrubbing,
         togglePlay,
         toggleMute,
         toggleScrubbingProgress,
@@ -31,7 +32,7 @@ function WrapperVideo({ data }) {
         const progress =
             refVideo.current.currentTime / refVideo.current.duration;
         refTimeLine.current.style.setProperty('--progress', progress);
-        currentTimeElmt.current.textContent = handleTime(
+        currentTimeElemt.current.textContent = handleTime(
             refVideo.current.currentTime,
         );
         if (refVideo.current.currentTime === refVideo.current.duration) {
@@ -85,30 +86,28 @@ function WrapperVideo({ data }) {
         refVolume.current.style.setProperty('--progress', percent);
         refVideo.current.volume = percent;
         if (percent === 0 && playerState.isMuted === false) {
-            console.log('d');
             toggleMute();
-            setCheck(true);
         }
         if (playerState.isMuted && percent !== 0) {
             toggleMute();
-            setCheck(true);
         }
     };
     const handleAddEventDoc = () => {
         document.addEventListener('mousemove', handleMouseMoveDoc);
     };
+    // remove doc scrubbing volume
     useEffect(() => {
-        if (check) {
+        if (check && (isScrubbingVolume || isScrubbing)) {
             document.addEventListener('mousemove', handleMouseMoveDoc);
             document.addEventListener('mouseup', handleMouseUpDoc);
         }
+
         return () => {
             document.removeEventListener('mousemove', handleMouseMoveDoc);
             document.removeEventListener('mouseup', handleMouseUpDoc);
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [check, playerState.isMuted]);
-
+    }, [check, isScrubbingVolume, isScrubbing]);
     useEffect(() => {
         let volume = refVideo.current.volume;
         if (playerState.isMuted) {
@@ -137,7 +136,12 @@ function WrapperVideo({ data }) {
                 }}
                 onTimeUpdate={handleTimeUpDate}
             ></video>
-            <div ref={refControlContainer} className={cx('controls-container')}>
+            <div
+                ref={refControlContainer}
+                className={cx('controls-container', {
+                    scrubbing: isScrubbing,
+                })}
+            >
                 <div className={cx('play-mute-volume')}>
                     <div className={cx('play-mute')}>
                         {playerState.isPlaying ? (
@@ -161,6 +165,7 @@ function WrapperVideo({ data }) {
                         <div className={cx('overlay')}>
                             <div
                                 onMouseDown={(e) => {
+                                    setCheck(true);
                                     handleAdjustVolume(e, playerState);
                                     toggleScrubbingVolume(e);
                                     document.addEventListener(
@@ -200,10 +205,9 @@ function WrapperVideo({ data }) {
                                     'mouseup',
                                     handleMouseUpDoc,
                                 );
+                                setCheck(true);
                                 toggleScrubbingProgress(e, {
                                     refTimeLine: refTimeLine.current,
-                                    refControlContainer:
-                                        refControlContainer.current,
                                     videoElement: refVideo.current,
                                 });
                             }}
@@ -213,7 +217,7 @@ function WrapperVideo({ data }) {
                     {/* time */}
                     <div className={cx('time-video')}>
                         <span
-                            ref={currentTimeElmt}
+                            ref={currentTimeElemt}
                             className={cx('current-time')}
                         >
                             00:00

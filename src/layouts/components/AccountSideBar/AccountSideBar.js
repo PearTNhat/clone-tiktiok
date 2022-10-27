@@ -5,35 +5,42 @@ import { Link } from 'react-router-dom';
 import Image from '~/components/Image';
 import { TickBlue } from '~/components/Icons';
 const cx = classNames.bind(style);
-function AccountSideBar({ data, isTippy = false }) {
+function AccountSideBar({ data, isTippy = false, isSeeAll }) {
     let Comp = 'div';
     if (isTippy) Comp = ShowInformation;
-    return data.map((item) => (
-        // fix bug tippy
-        <div key={item.id}>
-            <Comp data={item}>
-                <Link className={cx('container')} to={`/@${item.to}`}>
-                    <Image
-                        className={cx('avatar')}
-                        alt="avatar"
-                        src={item.avatar}
-                        fallback="https://meta.vn/huong-dan/tong-hop/anh-meo-cute-de-thuong-dang-yeu-11558"
-                    />
-                    <div className={cx('wrapper')}>
-                        <h4 className={cx('userName')}>
-                            {item.userName}
-                            {item.isTick && (
-                                <span className={cx('tickBlue')}>
-                                    <TickBlue />
-                                </span>
-                            )}
-                        </h4>
-                        <span className={cx('nickName')}>{item.nickName}</span>
-                    </div>
-                </Link>
-            </Comp>
-        </div>
-    ));
+    return data.map((account, i) => {
+        if (isSeeAll && i >= 5) return '';
+        return (
+            // fix bug tippy
+            <div key={account.id}>
+                <Comp data={account}>
+                    <Link
+                        className={cx('container')}
+                        to={`/@${account.nickname}`}
+                    >
+                        <Image
+                            className={cx('avatar')}
+                            alt="avatar"
+                            src={account.avatar}
+                        />
+                        <div className={cx('wrapper')}>
+                            <h4 className={cx('userName')}>
+                                {`${account.first_name} ${account.last_name}`}
+                                {account.tick && (
+                                    <span className={cx('tickBlue')}>
+                                        <TickBlue />
+                                    </span>
+                                )}
+                            </h4>
+                            <span className={cx('nickName')}>
+                                {account.nickname}
+                            </span>
+                        </div>
+                    </Link>
+                </Comp>
+            </div>
+        );
+    });
 }
 
 export default AccountSideBar;

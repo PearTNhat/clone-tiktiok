@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
-export let isScrubbing = false;
 const cx = classNames.bind();
 let wasPaused = true;
 function useVideoPlayer(videoElement) {
@@ -8,6 +7,7 @@ function useVideoPlayer(videoElement) {
         isPlaying: false,
         isMuted: false,
     });
+    let [isScrubbing, setIsScrubbing] = useState(false);
     //handleTime
     function formatTime(value) {
         const sValue = value.toString();
@@ -55,18 +55,17 @@ function useVideoPlayer(videoElement) {
         videoElement.muted = playerState.isMuted ? true : false;
     }, [playerState.isMuted, videoElement]);
     //toggle Scrubbing
-    const toggleScrubbingProgress = (
-        e,
-        { refTimeLine, refControlContainer, videoElement },
-    ) =>
+    const toggleScrubbingProgress = (e, { refTimeLine, videoElement }) =>
         // refTimeLine dùng để add progress
-        // refControlContainer dùng để add scrubbing
         {
             const rect = refTimeLine.getBoundingClientRect();
             const percent =
                 Math.min(e.clientX - rect.x, rect.width) / rect.width;
             isScrubbing = e.buttons === 1;
-            refControlContainer.classList.toggle(cx('scrubbing'), isScrubbing);
+
+            setIsScrubbing((pre) => {
+                return !pre;
+            });
             if (isScrubbing) {
                 wasPaused = videoElement.paused;
                 videoElement.pause();
@@ -82,6 +81,7 @@ function useVideoPlayer(videoElement) {
         };
     return {
         playerState,
+        isScrubbing,
         togglePlay,
         toggleMute,
         toggleScrubbingProgress,
