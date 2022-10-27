@@ -71,9 +71,7 @@ function useVideoPlayer(videoElement) {
                 videoElement.pause();
             } else if (e.buttons === 0) {
                 refTimeLine.style.setProperty('--progress', percent);
-                videoElement.currentTime = Math.floor(
-                    percent * videoElement.duration,
-                );
+                videoElement.currentTime = percent * videoElement.duration;
                 if (!wasPaused) {
                     videoElement.play();
                 }

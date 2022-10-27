@@ -50,7 +50,6 @@ function WrapperVideo({ data }) {
         if (isScrubbing) {
             toggleScrubbingProgress(e, {
                 refTimeLine: refTimeLine.current,
-                refControlContainer: refControlContainer.current,
                 videoElement: refVideo.current,
             });
         }
@@ -101,13 +100,12 @@ function WrapperVideo({ data }) {
             document.addEventListener('mousemove', handleMouseMoveDoc);
             document.addEventListener('mouseup', handleMouseUpDoc);
         }
-
         return () => {
             document.removeEventListener('mousemove', handleMouseMoveDoc);
             document.removeEventListener('mouseup', handleMouseUpDoc);
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [check, isScrubbingVolume, isScrubbing]);
+    }, [check, playerState.isMuted, isScrubbing]);
     useEffect(() => {
         let volume = refVideo.current.volume;
         if (playerState.isMuted) {
