@@ -1,4 +1,5 @@
 .wrapper {
+    position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -16,5 +17,39 @@
 
 .content {
     width: 692px;
+}
 
+.bottomContainer {
+    position: fixed;
+    bottom: 6px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    cursor: pointer;
+    transform: translateY(40px);
+    transition: transform linear 0.3s;
+    z-index: 99;
+}
+
+.btn-get-app {
+    margin-bottom: 12px;
+}
+
+.to-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgb(254 44 85 / 1);
+
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #FE2C55;
+    }
+}
+
+.bottomContainer.show {
+    transform: none;
 }

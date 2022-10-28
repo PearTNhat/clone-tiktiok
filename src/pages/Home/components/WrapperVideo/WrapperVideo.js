@@ -44,7 +44,6 @@ function WrapperVideo({ data }) {
         const rect = refTimeLine.current.getBoundingClientRect();
         const percent = Math.min(e.clientX - rect.x, rect.width) / rect.width;
         refTimeLine.current.style.setProperty('--progress', percent);
-        refVideo.current.currentTime = percent * refVideo.current.duration;
     };
     const handleMouseUpDoc = (e) => {
         if (isScrubbing) {
