@@ -14,7 +14,6 @@ async function getSuggest({ page, perPage }) {
 }
 async function getFollowing({ page }) {
     try {
-        console.log(page);
         const response = await request.get('me/followings', {
             params: {
                 page,

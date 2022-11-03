@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import classNames from 'classnames/bind';
-const cx = classNames.bind();
+// import classNames from 'classnames/bind';
+// const cx = classNames.bind();
 let wasPaused = true;
 function useVideoPlayer(videoElement) {
     const [playerState, setPlayerState] = useState({
@@ -40,9 +40,8 @@ function useVideoPlayer(videoElement) {
     };
     useEffect(() => {
         if (videoElement === null) return;
-        // console.log(playerState);
         playerState.isPlaying ? videoElement.play() : videoElement.pause();
-    }, [playerState.isPlaying]);
+    }, [playerState.isPlaying, videoElement]);
     // mute
     const toggleMute = () => {
         setPlayerState({

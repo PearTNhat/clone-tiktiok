@@ -10,14 +10,16 @@ import {
     LiveIconSolid,
     MusicNoteIcon,
 } from '~/components/Icons';
-import config from '~/config';
-import Menu, { MenuItem } from './Menu';
 import styles from './Sidebar.module.scss';
+import config from '~/config';
+import Menu, { MenuItem } from './components/Menu';
 import RenderAccountsSidebar from '../../components/RenderAccountsSidebar';
 import Tag from '~/components/Tag';
 import { HashTagIcon } from '~/components/Icons';
-import Discover from '~/components/Discover';
+import Discover from '~/layouts/DefaultLayout/Sidebar/components/Discover';
 import * as usersService from '~/service/usersSuggest';
+import Footer from './components/Footer';
+import FooterLine from './components/Footer/FooterLine';
 //
 const cx = classNames.bind(styles);
 
@@ -140,57 +142,11 @@ function Sidebar() {
                     <Tag data={hashTags} icon={<HashTagIcon />} />
                     <Tag data={musicTags} icon={<MusicNoteIcon />} />
                 </Discover>
-                <footer
-                    className={cx('footer', 'line-separate-sidebar-w90per')}
-                >
-                    <div className={cx('footer__line')}>
-                        <a href="/#" className={cx('footer__link')}>
-                            hello
-                        </a>
-                        <a href="/#" className={cx('footer__link')}>
-                            Help
-                        </a>
-                        <a href="/#" className={cx('footer__link')}>
-                            Safety
-                        </a>
-                        <a href="/#" className={cx('footer__link')}>
-                            hello
-                        </a>
-                        <a href="/#" className={cx('footer__link')}>
-                            hello
-                        </a>
-                        <a href="/#" className={cx('footer__link')}>
-                            hello
-                        </a>
-                        <a href="/#" className={cx('footer__link')}>
-                            hello
-                        </a>
-                    </div>
-                    <div className={cx('footer__line')}>
-                        <a href="/#" className={cx('footer__link')}>
-                            hello
-                        </a>
-                        <a href="/#" className={cx('footer__link')}>
-                            Help
-                        </a>
-                        <a href="/#" className={cx('footer__link')}>
-                            Safety
-                        </a>
-                        <a href="/#" className={cx('footer__link')}>
-                            hello
-                        </a>
-                        <a href="/#" className={cx('footer__link')}>
-                            hello
-                        </a>
-                        <a href="/#" className={cx('footer__link')}>
-                            hello
-                        </a>
-                        <a href="/#" className={cx('footer__link')}>
-                            hello
-                        </a>
-                    </div>
+                <Footer>
+                    <FooterLine />
+                    <FooterLine />
                     <span className={cx('footer__des')}>© 2022 TikTok</span>
-                </footer>
+                </Footer>
             </div>
         </div>
     );

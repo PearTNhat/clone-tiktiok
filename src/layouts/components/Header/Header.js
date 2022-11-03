@@ -96,9 +96,7 @@ const userMenu = [
 ];
 function Header() {
     const [logIn, setLogIn] = useState(true);
-    const handleChange = useCallback((item) => {
-        console.log(item);
-    }, []);
+    const handleChange = useCallback((item) => {}, []);
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
