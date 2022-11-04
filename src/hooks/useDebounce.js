@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
-function useDebounce(value, delay) {
+function useDebounce(value, delay = 500) {
     const [debounce, setDebounce] = useState(value);
     useEffect(() => {
         const handle = setTimeout(() => {

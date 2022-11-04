@@ -7,6 +7,7 @@ function useVideoPlayer(videoElement) {
         isPlaying: false,
         isMuted: false,
     });
+    const [positionTrack, setPositionTrack] = useState(-1);
     let [isScrubbing, setIsScrubbing] = useState(false);
     //handleTime
     function formatTime(value) {
@@ -30,7 +31,6 @@ function useVideoPlayer(videoElement) {
             )}`;
         }
     }
-
     // play
     const togglePlay = () => {
         setPlayerState({
@@ -40,7 +40,13 @@ function useVideoPlayer(videoElement) {
     };
     useEffect(() => {
         if (videoElement === null) return;
-        playerState.isPlaying ? videoElement.play() : videoElement.pause();
+        videoElement.play().then((res) => {
+            if (playerState.isPlaying) {
+                videoElement.play();
+            } else {
+                videoElement.pause();
+            }
+        });
     }, [playerState.isPlaying, videoElement]);
     // mute
     const toggleMute = () => {
@@ -61,24 +67,28 @@ function useVideoPlayer(videoElement) {
             const percent =
                 Math.min(e.clientX - rect.x, rect.width) / rect.width;
             isScrubbing = e.buttons === 1;
-
             setIsScrubbing((pre) => {
                 return !pre;
             });
+            if (positionTrack === e.clientX) return;
             if (isScrubbing) {
                 wasPaused = videoElement.paused;
-                videoElement.pause();
+                setPlayerState((pre) => ({
+                    ...pre,
+                    isPlaying: false,
+                }));
             } else if (e.buttons === 0) {
                 refTimeLine.style.setProperty('--progress', percent);
                 videoElement.currentTime = percent * videoElement.duration;
                 if (!wasPaused) {
-                    videoElement.play();
+                    togglePlay();
                 }
             }
         };
     return {
         playerState,
         isScrubbing,
+        setPositionTrack,
         togglePlay,
         toggleMute,
         toggleScrubbingProgress,

@@ -20,6 +20,7 @@ function WrapperVideo({ data }) {
     const {
         playerState,
         isScrubbing,
+        setPositionTrack,
         togglePlay,
         toggleMute,
         toggleScrubbingProgress,
@@ -45,8 +46,10 @@ function WrapperVideo({ data }) {
         const percent = Math.min(e.clientX - rect.x, rect.width) / rect.width;
         refTimeLine.current.style.setProperty('--progress', percent);
     };
+
     const handleMouseUpDoc = (e) => {
         if (isScrubbing) {
+            setPositionTrack(e.clientX);
             toggleScrubbingProgress(e, {
                 refTimeLine: refTimeLine.current,
                 videoElement: refVideo.current,
@@ -59,15 +62,15 @@ function WrapperVideo({ data }) {
         document.removeEventListener('mouseup', handleMouseUpDoc);
     };
     function handleMouseMoveDoc(e) {
+        e.preventDefault();
         if (isScrubbing) {
-            e.preventDefault();
             handleUpdateTimeline(e);
         }
         if (isScrubbingVolume) {
-            e.preventDefault();
             handleAdjustVolume(e);
         }
     }
+    //volume
     const toggleScrubbingVolume = (e) => {
         isScrubbingVolume = e.buttons === 1;
         volumeContainer.current.classList.toggle(
